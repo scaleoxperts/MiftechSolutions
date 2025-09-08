@@ -1,26 +1,54 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --dark-gray: #1d1d1d;
+  --text-dark-gray: #282828;
+  --charcoal-blue: #303755;
+  --base-color: #dd6531;
+  --gradient-fuel-yellow-start: #f5b421;
+  --gradient-fuel-yellow-end: #f5b421;
+  --gradient-blue-start: #789cf1;
+  --gradient-blue-end: #928cf5;
+  --white: #ffffff;
+  --linen: #f7f3f1;
+  --extra-medium-gray: #e0e0e0;
+  --red: #ff0000;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-dark-gray);
+  background: var(--white);
+}
+
+.text-gradient-base-color {
+  background: linear-gradient(to right, var(--gradient-fuel-yellow-start), var(--gradient-blue-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn-gradient-fuel-yellow-blue {
+  background-image: linear-gradient(to right, var(--gradient-fuel-yellow-start) 0%, var(--gradient-blue-start) 51%, var(--gradient-fuel-yellow-end) 100%);
+  background-size: 200% auto;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.btn-gradient-fuel-yellow-blue:hover {
+  background-position: right center;
+}
+
+.box-shadow-quadruple-large {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 15px 15px 30px rgba(0, 0, 0, 0.1), -15px -15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.animation-rotation {
+  animation: rotation 30s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
