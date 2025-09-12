@@ -1,8 +1,7 @@
 "use client";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
+
+import { useState, useEffect, SetStateAction } from 'react';
+import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
 const testimonials = [
   {
@@ -20,30 +19,195 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlay, setIsAutoPlay] = useState(true);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  useEffect(() => {
+    if (!isAutoPlay) return;
+    
+    const interval = setInterval(() => {
+      handleSlideChange((prev: number) => (prev + 1) % testimonials.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [isAutoPlay]);
+
+  const handleSlideChange = (indexOrCallback: SetStateAction<number>) => {
+    if (isTransitioning) return;
+    
+    setIsTransitioning(true);
+    setCurrentIndex(indexOrCallback);
+    
+    setTimeout(() => setIsTransitioning(false), 300);
+  };
+
+  const goToSlide = (index: number) => {
+    if (index !== currentIndex) {
+      handleSlideChange(index);
+    }
+  };
+
+  const nextSlide = () => {
+    handleSlideChange((prev: number) => (prev + 1) % testimonials.length);
+  };
+
+  const prevSlide = () => {
+    handleSlideChange((prev: number) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
   return (
-    <section className="py-20 lg:py-32 bg-[var(--linen)] relative overflow-hidden" style={{ backgroundImage: "url('/images/demo-branding-agency-bg-01.png')"}}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-          <div className="md:col-span-4">
-            <h2 className="text-3xl lg:text-4xl font-bold font-playfair text-[var(--text-dark-gray)] leading-tight">We are trusted by our customers ❤️</h2>
+    <section 
+      className="py-20 lg:py-32 bg-[var(--linen)] relative overflow-hidden" 
+      style={{ backgroundImage: "url('/images/demo-branding-agency-bg-01.png')" }}
+    >
+      {/* Background overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[var(--linen)]/80 via-[var(--white)]/60 to-[var(--linen)]/80"></div>
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          {/* Left side - Title */}
+          <div className="md:col-span-4 lg:col-span-5">
+            <div className="space-y-6">
+              <div className="flex items-center">
+                <span className="w-8 h-px bg-[var(--base-color)] mr-2"></span>
+                <span className="text-gradient-base-color text-sm font-bold uppercase tracking-widest">Testimonials</span>
+              </div>
+              
+              <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-[var(--text-dark-gray)] leading-tight">
+                We are trusted by our customers 
+                <span className="inline-block ml-2 text-[var(--base-color)]">❤️</span>
+              </h2>
+              
+              {/* Navigation controls for desktop */}
+              <div className="hidden md:flex items-center gap-4 pt-4">
+                <button
+                  onClick={prevSlide}
+                  disabled={isTransitioning}
+                  className="p-3 bg-[var(--white)] hover:bg-[var(--linen)] rounded-full shadow-lg transition-all duration-200 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed group border border-[var(--extra-medium-gray)]"
+                  aria-label="Previous testimonial"
+                >
+                  <ChevronLeft className="w-5 h-5 text-[var(--text-dark-gray)] group-hover:text-[var(--base-color)] transition-colors" />
+                </button>
+                
+                <button
+                  onClick={nextSlide}
+                  disabled={isTransitioning}
+                  className="p-3 bg-[var(--white)] hover:bg-[var(--linen)] rounded-full shadow-lg transition-all duration-200 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed group border border-[var(--extra-medium-gray)]"
+                  aria-label="Next testimonial"
+                >
+                  <ChevronRight className="w-5 h-5 text-[var(--text-dark-gray)] group-hover:text-[var(--base-color)] transition-colors" />
+                </button>
+
+                {/* Dot indicators */}
+                <div className="flex items-center gap-2 ml-4">
+                  {testimonials.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => goToSlide(index)}
+                      disabled={isTransitioning}
+                      className={`transition-all duration-300 ${
+                        index === currentIndex 
+                          ? 'w-8 h-3 bg-[var(--base-color)] rounded-full' 
+                          : 'w-3 h-3 bg-[var(--extra-medium-gray)] hover:bg-[var(--base-color)] rounded-full hover:scale-110'
+                      } disabled:cursor-not-allowed`}
+                      aria-label={`Go to testimonial ${index + 1}`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="md:col-span-8 md:col-start-6">
-            <Swiper
-              modules={[Autoplay, Navigation]}
-              loop={true}
-              autoplay={{ delay: 5000, disableOnInteraction: false }}
-              navigation={true}
-              className="w-full"
-            >
-              {testimonials.map((testimonial, index) => (
-                <SwiperSlide key={index}>
-                  <div className="p-4">
-                    <h3 className="text-2xl lg:text-3xl font-medium font-playfair text-[var(--text-dark-gray)] mb-4 leading-relaxed">{testimonial.quote}</h3>
-                    <p className="text-gradient-base-color font-bold uppercase tracking-widest">{testimonial.author}</p>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
+          
+          {/* Right side - Testimonial carousel */}
+          <div className="md:col-span-8 md:col-start-6 lg:col-span-7 lg:col-start-6">
+            <div className="relative">
+              
+              {/* Testimonial container */}
+              <div className="relative overflow-hidden rounded-2xl bg-[var(--white)] shadow-lg border border-[var(--extra-medium-gray)]/50">
+                <div 
+                  className="flex transition-transform duration-500 ease-out"
+                  style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                >
+                  {testimonials.map((testimonial, index) => (
+                    <div key={index} className="min-w-full">
+                      <div className="p-8 lg:p-12 relative">
+                        {/* Quote icon */}
+                        <div className="absolute top-6 right-6 opacity-10">
+                          <Quote className="w-16 h-16 text-[var(--base-color)]" />
+                        </div>
+                        
+                        {/* Quote text */}
+                        <blockquote className="relative z-10 mb-8">
+                          <p className="text-xl lg:text-2xl xl:text-3xl font-medium text-[var(--text-dark-gray)] leading-relaxed">
+                            "{testimonial.quote}"
+                          </p>
+                        </blockquote>
+                        
+                        {/* Author */}
+                        <div className="flex items-center justify-between">
+                          <cite className="text-gradient-base-color font-bold uppercase tracking-widest not-italic">
+                            {testimonial.author}
+                          </cite>
+                          
+                          {/* Slide counter */}
+                          <div className="text-sm text-[var(--text-dark-gray)]/60 font-medium">
+                            {currentIndex + 1} of {testimonials.length}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Mobile navigation */}
+              <div className="md:hidden flex items-center justify-center gap-4 mt-6">
+                <button
+                  onClick={prevSlide}
+                  disabled={isTransitioning}
+                  className="p-3 bg-[var(--white)] hover:bg-[var(--linen)] rounded-full shadow-lg transition-all duration-200 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed group border border-[var(--extra-medium-gray)]"
+                  aria-label="Previous testimonial"
+                >
+                  <ChevronLeft className="w-5 h-5 text-[var(--text-dark-gray)] group-hover:text-[var(--base-color)] transition-colors" />
+                </button>
+                
+                {/* Mobile dot indicators */}
+                <div className="flex items-center gap-2">
+                  {testimonials.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => goToSlide(index)}
+                      disabled={isTransitioning}
+                      className={`transition-all duration-300 ${
+                        index === currentIndex 
+                          ? 'w-8 h-3 bg-[var(--base-color)] rounded-full' 
+                          : 'w-3 h-3 bg-[var(--extra-medium-gray)] hover:bg-[var(--base-color)] rounded-full hover:scale-110'
+                      } disabled:cursor-not-allowed`}
+                      aria-label={`Go to testimonial ${index + 1}`}
+                    />
+                  ))}
+                </div>
+                
+                <button
+                  onClick={nextSlide}
+                  disabled={isTransitioning}
+                  className="p-3 bg-[var(--white)] hover:bg-[var(--linen)] rounded-full shadow-lg transition-all duration-200 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed group border border-[var(--extra-medium-gray)]"
+                  aria-label="Next testimonial"
+                >
+                  <ChevronRight className="w-5 h-5 text-[var(--text-dark-gray)] group-hover:text-[var(--base-color)] transition-colors" />
+                </button>
+              </div>
+
+              {/* Progress bar */}
+              <div className="mt-4 w-full h-1 bg-[var(--extra-medium-gray)]/30 rounded-full overflow-hidden">
+                <div 
+                  className="h-full bg-[var(--base-color)] transition-all duration-500 ease-out rounded-full"
+                  style={{ width: `${((currentIndex + 1) / testimonials.length) * 100}%` }}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
