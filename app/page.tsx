@@ -12,8 +12,8 @@ export default function HomePage() {
       <HeroSlider />
       <AboutIntro />
       <ProductShowcase />
-      <Faq />
       <Stats />
+      <Faq />
       <Testimonials />
     </>
   );
