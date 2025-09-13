@@ -16,7 +16,7 @@ const testimonials = [
 
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlay, setIsAutoPlay] = useState(true);
+  const [isAutoPlay] = useState(true);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
@@ -79,7 +79,7 @@ export default function Testimonials() {
                         <Quote className="w-16 h-16 text-[#087dc0]" />
                       </div>
                       <blockquote className={`relative z-10 mb-8 ${lato.className}`}>
-                        <p className="text-xl lg:text-2xl xl:text-3xl font-medium text-gray-800 leading-relaxed">"{t.quote}"</p>
+                        <p className="text-xl lg:text-2xl xl:text-3xl font-medium text-gray-800 leading-relaxed">&quot;{t.quote}&quot;</p>
                       </blockquote>
                       <div className="flex items-center justify-between">
                         <cite className={`text-[#087dc0] font-bold uppercase tracking-widest not-italic ${cormorant.className}`}>{t.author}</cite>
