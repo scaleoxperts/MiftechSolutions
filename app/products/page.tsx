@@ -32,7 +32,7 @@ export default function ProductsPage() {
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-3xl">
                         <h1 className="text-4xl md:text-6xl font-bold font-playfair text-[var(--text-dark-gray)]">Our Products & Services</h1>
-                        <p className="mt-4 text-lg text-gray-600">We don't just build products; we build sustainable energy solutions that deliver measurable savings and drive growth.</p>
+                        <p className="mt-4 text-lg text-gray-600">We {"don't"} just build products; we build sustainable energy solutions that deliver measurable savings and drive growth.</p>
                     </div>
                 </div>
             </section>
