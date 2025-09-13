@@ -46,7 +46,7 @@ export default function Testimonials() {
             <div className="space-y-6">
               <div className="flex items-center">
                 <span className="w-8 h-px bg-[#087dc0] mr-2"></span>
-                <span className={`text-sm font-bold uppercase tracking-widest ${cormorant.className}`} style={{ background: 'linear-gradient(90deg, #087dc0, #36a9e0)', WebkitBackgroundClip: 'text', color: 'transparent' }}>Testimonials</span>
+                <span className={`text-sm font-bold uppercase tracking-widest text-[#087dc0] ${lato.className}`}>Testimonials</span>
               </div>
 
               <h2 className={`text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 leading-tight ${gotu.className}`}>
