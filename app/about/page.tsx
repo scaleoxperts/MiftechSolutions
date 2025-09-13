@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Gotu, Cormorant_Garamond, Lato } from "next/font/google";
 
 const gotu = Gotu({ subsets: ["latin"], weight: "400" });
