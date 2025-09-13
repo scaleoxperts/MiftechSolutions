@@ -1,6 +1,3 @@
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
 
 const ProcessPage = () => {
   return (
@@ -43,7 +40,7 @@ const BusinessProcessSection = () => {
           </div>
           <div className="col-lg-3 col-md-5 col-sm-6 text-center sm:text-start">
             <span className="text-dark-gray text-xl font-semibold inline-block mb-1.5">Recruitment Completed</span>
-            <p className="w-[90%] lg:w-full">At Luminar Consultancy, a flagship product of Kaushal Headway Private Limited, we believe in delivering HR solutions that are precise, resilient, and tailored to each client's needs</p>
+            <p className="w-[90%] lg:w-full">At Luminar Consultancy, a flagship product of Kaushal Headway Private Limited, we believe in delivering HR solutions that are precise, resilient, and tailored to each client&apos;s needs</p>
           </div>
         </div>
         <div className="row row-cols-1 row-cols-lg-4 row-cols-sm-2 mt-20 md:mt-12">
@@ -108,7 +105,7 @@ const FaqSection = () => {
                  </div>
                  <div className="row justify-center">
                      <div className="col-12 text-center mt-6">
-                         <h6 className="alt-font text-dark-gray ls-[-1px] mb-0">Didn't find the right response? <a href="https://wa.me/919202313083?text=Hello,%20I%20have%20a%20unique%20query!" className="underline text-dark-gray font-semibold inline-block">Ask Directly</a></h6>
+                         <h6 className="alt-font text-dark-gray ls-[-1px] mb-0">Didn&apos;t find the right response? <a href="https://wa.me/919202313083?text=Hello,%20I%20have%20a%20unique%20query!" className="underline text-dark-gray font-semibold inline-block">Ask Directly</a></h6>
                      </div>
                  </div>
              </div>
