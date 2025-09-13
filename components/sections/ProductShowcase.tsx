@@ -48,18 +48,9 @@ export default function ProductShowcase() {
 
         <div ref={ref} className="relative">
           {products.map((product, index) => (
-            <motion.div
-              key={index}
-              style={{
-                position: 'sticky',
-                top: '150px',
-                y: yTransforms[index],
-                zIndex: index + 1,
-              }}
-              className='flex flex-col justify-between'
-            >
-              <ProductCard product={product} index={index} />
-            </motion.div>
+           <div className='h-[1000px] sticky top-0'>
+             <ProductCard product={product} index={index} />
+           </div>
           ))}
         </div>
       </div>

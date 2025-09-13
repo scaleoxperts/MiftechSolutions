@@ -20,7 +20,7 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   return (
-    <div className="group bg-white rounded-3xl shadow-2xl overflow-hidden transform transition-transform duration-300 hover:scale-105">
+    <div className="group bg-white rounded-3xl shadow-2xl overflow-hidden transform transition-transform duration-300 hover:scale-105 sticky top-[150px]">
       <Link href={product.href}>
         <div className="flex flex-col lg:flex-row h-full">
           <div className="relative flex-shrink-0 w-full lg:w-1/2 aspect-[4/3] lg:aspect-[3/2]">
