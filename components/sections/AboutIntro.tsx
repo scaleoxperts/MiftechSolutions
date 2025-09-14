@@ -2,6 +2,7 @@
 
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Cormorant_Garamond, Gotu, Lato } from "next/font/google"
+import Image from "next/image"
 import { SetStateAction, useEffect, useState } from "react"
 
 const gotu = Gotu({ subsets: ["latin"], weight: "400" })
@@ -45,7 +46,7 @@ export default function AboutIntro() {
               <div className="flex transition-transform duration-700 ease-out h-full" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
                 {images.map((image, index) => (
                   <div key={index} className="min-w-full h-full relative group">
-                    <img src={image.src} alt={image.alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading={index === 0 ? "eager" : "lazy"} />
+                    <Image src={image.src} alt={image.alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading={index === 0 ? "eager" : "lazy"} />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="absolute bottom-4 left-4 right-4">
                         <h3 className={`text-white text-xl sm:text-2xl ${cormorant.className} font-semibold`}>
