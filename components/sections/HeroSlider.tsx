@@ -1,6 +1,6 @@
 "use client";
 import { motion, Transition, Variants } from 'motion/react';
-import { Cormorant_Garamond, Gotu } from 'next/font/google';
+import { Cormorant_Garamond, Gotu, Lato } from 'next/font/google';
 import Link from 'next/link';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
@@ -8,12 +8,9 @@ import 'swiper/css/pagination';
 import { Autoplay, EffectFade, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-const gotu = Gotu({
-  weight: '400', subsets: ["latin"]
-});
-const cormorant_garamond = Cormorant_Garamond({
-  weight: '600', subsets: ["latin"], style:"italic"
-});
+const gotu = Gotu({ weight: '400', subsets: ["latin"] });
+const cormorant_garamond = Cormorant_Garamond({ weight: '600', subsets: ["latin"], style: "italic" });
+const lato = Lato({ subsets: ["latin"], weight: "400" })
 
 const slides = [
   { bg: '/images/demo-branding-agency-slider-01.jpg' },
@@ -28,10 +25,10 @@ const containerVariants = {
 
 const itemVariants: Variants = {
   hidden: { y: 20, opacity: 0 },
-  visible: { 
-    y: 0, 
-    opacity: 1, 
-    transition: { duration: 0.8, ease: "easeOut" as Transition['ease'] } 
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.8, ease: "easeOut" as Transition['ease'] }
   }
 };
 
@@ -55,7 +52,7 @@ export default function HeroSlider() {
               animate="visible"
             >
               <motion.span
-                className="inline-block text-sm font-semibold text-[#4169E1] mb-4 uppercase tracking-wide"
+                className={`inline-block text-sm ${lato.className} font-semibold text-[#4169E1] mb-4 uppercase tracking-wide`}
                 variants={itemVariants}
               >
                 Leading Sustainable Energy Innovations
@@ -73,7 +70,7 @@ export default function HeroSlider() {
               </motion.h1>
 
               <motion.p
-                className="text-gray-600 mb-8 text-base md:text-lg leading-relaxed"
+                className={`${lato.className} text-gray-600 mb-8 text-base md:text-lg leading-relaxed`}
                 variants={itemVariants}
               >
                 Discover advanced technologies designed to reduce energy waste, cut costs, and provide clean, reliable heating solutions for homes and businesses alike.
