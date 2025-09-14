@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, SetStateAction } from 'react';
+import { useState, useEffect, SetStateAction, useCallback } from 'react';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { Gotu, Cormorant_Garamond, Lato } from 'next/font/google';
 
@@ -18,19 +18,22 @@ export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlay] = useState(true);
   const [isTransitioning, setIsTransitioning] = useState(false);
-
+  
+  const handleSlideChange = useCallback(
+    (indexOrCallback: SetStateAction<number>) => {
+      if (isTransitioning) return;
+      setIsTransitioning(true);
+      setCurrentIndex(indexOrCallback);
+      setTimeout(() => setIsTransitioning(false), 300);
+    },
+    [isTransitioning]
+  );
+  
   useEffect(() => {
-    if (!isAutoPlay) return;
-    const interval = setInterval(() => handleSlideChange(prev => (prev + 1) % testimonials.length), 5000);
-    return () => clearInterval(interval);
-  }, [isAutoPlay]);
-
-  const handleSlideChange = (indexOrCallback: SetStateAction<number>) => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentIndex(indexOrCallback);
-    setTimeout(() => setIsTransitioning(false), 300);
-  };
+    if (!isAutoPlay) return
+    const interval = setInterval(() => handleSlideChange(prev => (prev + 1) % testimonials.length), 5000)
+    return () => clearInterval(interval)
+  }, [isAutoPlay, handleSlideChange])
 
   const goToSlide = (index: number) => { if (index !== currentIndex) handleSlideChange(index); };
   const nextSlide = () => handleSlideChange(prev => (prev + 1) % testimonials.length);
