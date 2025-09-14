@@ -3,7 +3,6 @@ import { poppins, playfairDisplay } from './fonts';
 import './globals.css';
 import Header from '@/components/common/Navbar';
 import Footer from '@/components/common/Footer';
-;
 
 export const metadata: Metadata = {
   title: 'MifTech Solution',
