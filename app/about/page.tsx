@@ -30,7 +30,7 @@ export default function AboutPage() {
             </h1>
 
             <p className={`text-lg text-gray-700 leading-relaxed ${lato.className}`}>
-              At MifTech Solution, we don’t just make products; we build <span className={`${cormorant.className} italic`}>assets</span> that deliver real, measurable savings. Our goal is to create lasting impact and drive positive growth for our clients.
+              At MifTech Solution, we don’t just make products; we build <span className={`underline mx-1`}>ASSETS</span> that deliver real, measurable savings. Our goal is to create lasting impact and drive positive growth for our clients.
             </p>
           </motion.div>
         </div>
