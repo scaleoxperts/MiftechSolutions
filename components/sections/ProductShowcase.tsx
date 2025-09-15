@@ -1,5 +1,5 @@
 "use client"
-import { motion, useScroll, useTransform, MotionValue } from 'motion/react';
+import { useScroll } from 'motion/react';
 import { useRef } from 'react';
 import ProductCard from './ProductCard';
 
@@ -25,16 +25,11 @@ const products = [
 ];
 
 export default function ProductShowcase() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollY } = useScroll();
-  const cardHeight = 800;
-
-  const yTransforms: MotionValue<number>[] = [
-    useTransform(scrollY, [0 * cardHeight, 1 * cardHeight], [0, 0], { clamp: true }),
-    useTransform(scrollY, [1 * cardHeight, 2 * cardHeight], [0, 0], { clamp: true }),
-    useTransform(scrollY, [2 * cardHeight, 3 * cardHeight], [0, 0], { clamp: true })
-  ];
-
+  const container = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ['start start', '90% end']
+  });
   return (
     <section className="bg-[var(--linen)] py-20 lg:py-32 w-full">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,21 +41,23 @@ export default function ProductShowcase() {
           <h2 className="text-3xl md:text-4xl font-bold font-playfair text-[var(--text-dark-gray)]">Latest Heating Solutions</h2>
         </div>
 
-        <div ref={ref} className="relative">
-          {products.map((product, index) => (
-            <motion.div
-              key={index}
-              style={{
-                position: 'sticky',
-                top: '150px',
-                y: yTransforms[index],
-                zIndex: index + 1,
-              }}
-              className='flex flex-col justify-between'
-            >
-              <ProductCard product={product} index={index} />
-            </motion.div>
-          ))}
+        <div ref={container} className="relative">
+          {products.map((product, index) => {
+              const targetScale = 0.85 + (index * 0.05); // final scale per card
+              const range = [
+                (index * 0.5) / products.length,
+                (index * 0.5 + 1) / products.length
+              ];
+
+            return (
+              <div className='h-[800px] sticky top-0' key={index}>
+                <ProductCard product={product} index={index} progress={scrollYProgress} range={range} targerScale={ targetScale }
+                
+            
+            />
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

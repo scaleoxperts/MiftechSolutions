@@ -1,6 +1,6 @@
 "use client";
 import { motion, Transition, Variants } from 'motion/react';
-import { Cormorant_Garamond, Gotu } from 'next/font/google';
+import { Cormorant_Garamond, Gotu, Lato } from 'next/font/google';
 import Link from 'next/link';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
@@ -8,12 +8,9 @@ import 'swiper/css/pagination';
 import { Autoplay, EffectFade, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-const gotu = Gotu({
-  weight: '400', subsets: ["latin"]
-});
-const cormorant_garamond = Cormorant_Garamond({
-  weight: '600', subsets: ["latin"], style:"italic"
-});
+const gotu = Gotu({ weight: '400', subsets: ["latin"] });
+const cormorant_garamond = Cormorant_Garamond({ weight: '600', subsets: ["latin"], style: "italic" });
+const lato = Lato({ subsets: ["latin"], weight: "400" })
 
 const slides = [
   { bg: '/images/demo-branding-agency-slider-01.jpg' },
@@ -28,10 +25,10 @@ const containerVariants = {
 
 const itemVariants: Variants = {
   hidden: { y: 20, opacity: 0 },
-  visible: { 
-    y: 0, 
-    opacity: 1, 
-    transition: { duration: 0.8, ease: "easeOut" as Transition['ease'] } 
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.8, ease: "easeOut" as Transition['ease'] }
   }
 };
 
@@ -42,23 +39,23 @@ const buttonVariants = {
 
 export default function HeroSlider() {
   return (
-    <section className="relative h-screen min-h-[800px] pt-10  overflow-hidden">
+    <section className="relative h-screen min-h-[600px] md:min-h-[700px] lg:min-h-[800px] overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-transparent z-10" />
 
-      <div className="container h-full px-4 relative z-20">
-        <div className="flex h-full items-center">
-          <div className="w-full lg:w-1/2">
+      <div className="container mx-auto h-full px-4 sm:px-6 lg:px-8 relative z-20">
+        <div className="flex h-full items-center justify-center lg:justify-start">
+          <div className="w-full max-w-xl lg:max-w-2xl text-center lg:text-left">
             <motion.div
-              className="pl-0 lg:pl-12"
               variants={containerVariants}
               initial="hidden"
               animate="visible"
+              className="space-y-4 md:space-y-6"
             >
               <motion.span
-                className="inline-block text-sm font-semibold text-[#4169E1] mb-4 uppercase tracking-wide"
+                className={`inline-block text-xs md:text-sm ${lato.className} font-semibold text-[#4169E1] uppercase tracking-wide`}
                 variants={itemVariants}
               >
-                Leading Sustainable Energy Innovations
+                Leading Energy Innovations
               </motion.span>
 
               <motion.h1
@@ -73,19 +70,20 @@ export default function HeroSlider() {
               </motion.h1>
 
               <motion.p
-                className="text-gray-600 mb-8 mr-4 text-base md:text-lg leading-relaxed"
+                className="text-gray-600 text-sm md:text-base lg:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0"
                 variants={itemVariants}
               > 
-                MifTech Solution is an ISO, CE & RoHS certified leader in sustainable, energy-efficient technologies. We provide eco-friendly heating, cooling, and renewable solutions that help industries and households save costs and protect the planet.               </motion.p>
+                ISO certified leader in sustainable heating, cooling, and renewable energy solutions for industries and households.
+              </motion.p>
 
               <motion.div
-                className="flex gap-4"
+                className="flex flex-col sm:flex-row gap-3 md:gap-4 items-center justify-center lg:justify-start pt-2"
                 variants={itemVariants}
               >
                 <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
                   <Link
                     href="/about"
-                    className="px-8 py-3 text-sm font-semibold text-[var(--white)] bg-gradient-to-r from-[#FFD700] to-[#4169E1] rounded-full shadow-md transition"
+                    className="w-full sm:w-auto px-6 md:px-8 py-2.5 md:py-3 text-xs md:text-sm font-semibold text-white bg-gradient-to-r from-[#FFD700] to-[#4169E1] rounded-full shadow-md transition text-center"
                   >
                     Learn More
                   </Link>
@@ -94,9 +92,9 @@ export default function HeroSlider() {
                 <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
                   <Link
                     href="/contact"
-                    className="px-8  py-3 text-sm font-semibold text-[#4169E1] bg-white/90 backdrop-blur-sm rounded-full shadow-md border border-[#4169E1]/30 transition "
+                    className="w-full sm:w-auto px-6 md:px-8 py-2.5 md:py-3 text-xs md:text-sm font-semibold text-[#4169E1] bg-white/90 backdrop-blur-sm rounded-full shadow-md border border-[#4169E1]/30 transition text-center"
                   >
-                    Get A Free Quote
+                    Get Free Quote
                   </Link>
                 </motion.div>
               </motion.div>

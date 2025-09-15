@@ -2,8 +2,9 @@
 
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Cormorant_Garamond, Gotu, Lato } from "next/font/google"
-import Image from "next/image"
-import { SetStateAction, useEffect, useState } from "react"
+import { SetStateAction, useCallback, useEffect, useState } from "react"
+import Image from 'next/image';
+
 
 const gotu = Gotu({ subsets: ["latin"], weight: "400" })
 const cormorant = Cormorant_Garamond({ subsets: ["latin"], weight: "400" })
@@ -32,6 +33,17 @@ export default function AboutIntro() {
   const [isAutoPlay] = useState(true)
   const [isTransitioning, setIsTransitioning] = useState(false)
 
+
+  const handleSlideChange = useCallback(
+    (indexOrCallback: SetStateAction<number>) => {
+      if (isTransitioning) return
+      setIsTransitioning(true)
+      setCurrentIndex(indexOrCallback)
+      setTimeout(() => setIsTransitioning(false), 500)
+    },
+    [isTransitioning]
+  )
+
   useEffect(() => {
     if (!isAutoPlay) return
     const interval = setInterval(
@@ -39,18 +51,10 @@ export default function AboutIntro() {
       5000
     )
     return () => clearInterval(interval)
-  }, [isAutoPlay, images.length])
+  }, [isAutoPlay, images.length, handleSlideChange])
 
-  const handleSlideChange = (indexOrCallback: SetStateAction<number>) => {
-    if (isTransitioning) return
-    setIsTransitioning(true)
-    setCurrentIndex(indexOrCallback)
-    setTimeout(() => setIsTransitioning(false), 500)
-  }
 
-  const goToSlide = (index: number) => {
-    if (index !== currentIndex) handleSlideChange(index)
-  }
+  const goToSlide = (index: number) => { if (index !== currentIndex) handleSlideChange(index) }
 
   return (
     <section
@@ -67,16 +71,14 @@ export default function AboutIntro() {
                 style={{ transform: `translateX(-${currentIndex * 100}%)` }}
               >
                 {images.map((image, index) => (
-                  <div
-                    key={index}
-                    className="min-w-full h-full relative group"
-                  >
+                  <div key={index} className="min-w-full h-full relative group">
+
                     <Image
                       src={image.src}
                       alt={image.alt}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      loading={index === 0 ? "eager" : "lazy"}
+                      priority={index === 0}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="absolute bottom-4 left-4 right-4">

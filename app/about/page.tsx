@@ -30,8 +30,7 @@ export default function AboutPage() {
             </h1>
 
             <p className={`text-lg text-gray-700 leading-relaxed ${lato.className}`}>
-              At MifTech Solution, an <span className={`${cormorant.className} italic`}>ISO, CE </span> & <span className={`${cormorant.className} italic`}>RoHS</span> certified company, we are dedicated to creating a greener, smarter, and more sustainable future. Our expertise lies in delivering Air Source Heat Pumps, renewable energy solutions, and advanced eco-friendly technologies tailored to the unique needs of industries and communities.
-              {/* At MifTech Solution, we don’t just make products; we build <span className={`${cormorant.className} italic`}>assets</span> that deliver real, measurable savings. Our goal is to create lasting impact and drive positive growth for our clients. */}
+              At MifTech Solution, we don’t just make products; we build <span className={`underline mx-1`}>ASSETS</span> that deliver real, measurable savings. Our goal is to create lasting impact and drive positive growth for our clients.
             </p>
           </motion.div>
         </div>
