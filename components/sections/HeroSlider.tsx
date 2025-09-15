@@ -42,7 +42,7 @@ const buttonVariants = {
 
 export default function HeroSlider() {
   return (
-    <section className="relative h-screen min-h-[600px] pt-20 overflow-hidden">
+    <section className="relative h-screen min-h-[800px] pt-10  overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-transparent z-10" />
 
       <div className="container h-full px-4 relative z-20">
@@ -73,11 +73,10 @@ export default function HeroSlider() {
               </motion.h1>
 
               <motion.p
-                className="text-gray-600 mb-8 text-base md:text-lg leading-relaxed"
+                className="text-gray-600 mb-8 mr-4 text-base md:text-lg leading-relaxed"
                 variants={itemVariants}
-              >
-                Discover advanced technologies designed to reduce energy waste, cut costs, and provide clean, reliable heating solutions for homes and businesses alike.
-              </motion.p>
+              > 
+                MifTech Solution is an ISO, CE & RoHS certified leader in sustainable, energy-efficient technologies. We provide eco-friendly heating, cooling, and renewable solutions that help industries and households save costs and protect the planet.               </motion.p>
 
               <motion.div
                 className="flex gap-4"
@@ -95,7 +94,7 @@ export default function HeroSlider() {
                 <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
                   <Link
                     href="/contact"
-                    className="px-8 py-3 text-sm font-semibold text-[#4169E1] bg-white/90 backdrop-blur-sm rounded-full shadow-md border border-[#4169E1]/30 transition "
+                    className="px-8  py-3 text-sm font-semibold text-[#4169E1] bg-white/90 backdrop-blur-sm rounded-full shadow-md border border-[#4169E1]/30 transition "
                   >
                     Get A Free Quote
                   </Link>

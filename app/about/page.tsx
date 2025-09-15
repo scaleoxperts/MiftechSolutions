@@ -30,7 +30,8 @@ export default function AboutPage() {
             </h1>
 
             <p className={`text-lg text-gray-700 leading-relaxed ${lato.className}`}>
-              At MifTech Solution, we don’t just make products; we build <span className={`${cormorant.className} italic`}>assets</span> that deliver real, measurable savings. Our goal is to create lasting impact and drive positive growth for our clients.
+              At MifTech Solution, an <span className={`${cormorant.className} italic`}>ISO, CE </span> & <span className={`${cormorant.className} italic`}>RoHS</span> certified company, we are dedicated to creating a greener, smarter, and more sustainable future. Our expertise lies in delivering Air Source Heat Pumps, renewable energy solutions, and advanced eco-friendly technologies tailored to the unique needs of industries and communities.
+              {/* At MifTech Solution, we don’t just make products; we build <span className={`${cormorant.className} italic`}>assets</span> that deliver real, measurable savings. Our goal is to create lasting impact and drive positive growth for our clients. */}
             </p>
           </motion.div>
         </div>
@@ -51,10 +52,13 @@ export default function AboutPage() {
                 Elevate Your Energy Efficiency with <span className={`${cormorant.className} italic text-[#087dc0]`}>Proven Technology</span>
               </h2>
               <p className={`text-gray-700 ${lato.className}`}>
-                With over 10+ years of experience, our team specializes in energy efficiency and cost optimization. We understand our role in helping clients succeed, and our commitment goes far beyond delivering a solution.
+                We believe in reducing energy costs, minimizing carbon footprint, and maximizing efficiency through innovation and customer-focused solutions. Guided by our core values—Innovation, Integrity, and Sustainability—we strive to build lasting partnerships that create real impact.
               </p>
               <p className={`text-gray-700 ${lato.className}`}>
-                We focus on keeping your operations running at maximum efficiency wherever controlled heating is essential. Our Heat Pump technology runs on electric power but is more economical than solar systems, offering reliable performance year-round.
+                With 15+ years of expertise as energy-efficiency and cost specialists, we understand the critical role we play in our customers’ success. Our commitment goes beyond simply delivering a contract—we ensure our clients’ operations run at 100% efficiency, wherever controlled heating is essential.
+              </p>
+              <p className={`text-gray-700 ${lato.className}`}>
+                With globally recognized certifications (ISO, CE & RoHS), MifTech Solution ensures quality, safety, and environmental responsibility in every project—leading the global transition toward sustainable living and smarter energy solutions.
               </p>
             </motion.div>
 
@@ -120,6 +124,26 @@ export default function AboutPage() {
               </motion.div>
             ))}
           </motion.div>
+        </div>
+      </section>
+      <section className="py-20 bg-[var(--white)]">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className={`text-xl md:text-6xl font-bold text-[var(--text-dark-gray)] ${gotu.className}`}>
+              Our <span className={`${cormorant.className} italic text-[#087dc0]`}>Vision</span>
+            </h2>
+            <p className={`mt-4 text-gray-700 max-w-2xl mx-auto ${lato.className}`}>
+              To be a global leader in sustainable,  <span className={`${cormorant.className} italic`}>ISO, CE </span> & <span className={`${cormorant.className} italic`}>RoHS</span> certified energy solutions, empowering industries and communities with innovative, eco-friendly technologies that reduce energy costs, minimize carbon footprint, and create a cleaner, greener future.
+            </p>
+          </motion.div>
+
+          
         </div>
       </section>
     </main>
