@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "motion/react";
 import { Gotu, Cormorant_Garamond, Lato } from "next/font/google";
 
 const gotu = Gotu({ subsets: ["latin"], weight: "400" });
@@ -34,27 +35,40 @@ const products = [
 
 export default function ProductsPage() {
   return (
-    <>
+    <main className="overflow-hidden">
       {/* Hero */}
       <section className="pt-32 pb-16 bg-[var(--white)]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-3xl"
+          >
             <h1 className={`text-4xl md:text-6xl font-bold text-[var(--text-dark-gray)] ${gotu.className}`}>
-              Our <span className={`${cormorant.className} italic text-[var(--base-color)]`}>Products</span> & Services
+              Our  <span className={`${cormorant.className} italic text-[#087dc0]`}>Products</span> & Services
             </h1>
             <p className={`mt-4 text-lg text-gray-700 ${lato.className}`}>
-              We don’t just build products; we build <span className="underline">sustainable energy solutions</span> 
+              We don’t just build products; we build{" "}
+              <span className="underline">sustainable energy solutions</span> 
               that deliver measurable savings and drive growth.
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Product List */}
-      <section className="py-16 bg-[var(--linen)]">
+      <section className="py-16 bg-[var(--linen)]/40">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {products.map((product, index) => (
-            <div key={index} className="mb-24 last:mb-0">
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="mb-24 last:mb-0"
+            >
               {/* Text Section */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-8">
                 <div>
@@ -66,7 +80,7 @@ export default function ProductsPage() {
                   </p>
                   <Link 
                     href={product.href} 
-                    className="inline-block mt-2 px-5 py-2 text-sm font-semibold text-white bg-[var(--base-color)] rounded-lg shadow hover:bg-[#066ba5] transition"
+                    className="inline-block mt-2 px-5 py-2 text-sm font-semibold text-[var(--white)] bg-[#087dc0] rounded-lg shadow hover:bg-opacity-80 transition-all"
                   >
                     Learn More →
                   </Link>
@@ -76,7 +90,7 @@ export default function ProductsPage() {
 
               {/* Image Section */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="md:col-span-2 rounded-lg overflow-hidden shadow-lg">
+                <div className="md:col-span-2 rounded-lg overflow-hidden shadow-2xl">
                   <Image 
                     src={product.img1} 
                     alt={product.title} 
@@ -85,7 +99,7 @@ export default function ProductsPage() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="rounded-lg overflow-hidden shadow-lg">
+                <div className="rounded-lg overflow-hidden shadow-2xl">
                   <Image 
                     src={product.img2} 
                     alt={`${product.title} detail`} 
@@ -95,10 +109,10 @@ export default function ProductsPage() {
                   />
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
-    </>
+    </main>
   );
 }
