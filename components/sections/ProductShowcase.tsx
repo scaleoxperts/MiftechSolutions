@@ -8,19 +8,19 @@ const products = [
     image: "/images/swimming-pool-air-source-heat-pump.jpg",
     title: "Swimming Pool Heat Pump",
     description: "Our specialized Swimming Pool Heat Pumps are built to maintain comfortable water temperatures while minimizing energy costs.",
-    href: "/swimming-pool-heat-pump"
+    href: "/products/swimming-pool-heat-pump"
   },
   {
     image: "/images/industrial-heat-pump.jpg",
     title: "Commercial & Industrial Heat Pump",
     description: "Powerful and efficient solutions for hotels, hospitals, and large-scale industrial applications, ensuring reliable hot water with significant energy savings.",
-    href: "/industrial-heat-pump"
+    href: "/products/industrial-heat-pump"
   },
   {
     image: "/images/domestic.jpg",
     title: "Domestic & All-In-One Heat Pump",
     description: "Compact and eco-friendly systems designed for residential use, providing a consistent supply of hot water while reducing your carbon footprint.",
-    href: "/domestic-heat-pump"
+    href: "/products/domestic-heat-pump"
   }
 ];
 
