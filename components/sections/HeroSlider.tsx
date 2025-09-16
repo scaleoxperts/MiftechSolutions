@@ -49,41 +49,43 @@ export default function HeroSlider() {
               variants={containerVariants}
               initial="hidden"
               animate="visible"
-              className="space-y-4 md:space-y-6"
+              className="space-y-3 md:space-y-4"
             >
               <motion.span
-                className={`inline-block text-xs md:text-sm ${lato.className} font-semibold text-[#4169E1] uppercase tracking-wide`}
+                className={`inline-block text-lg sm:text-base md:text-lg ${lato.className} font-semibold text-[#4169E1] uppercase tracking-wide`}
                 variants={itemVariants}
               >
                 Leading Energy Innovations
               </motion.span>
 
               <motion.h1
-                className={`${gotu.className} text-4xl md:text-6xl font-bold text-[var(--text-dark-gray)] mb-6 leading-snug`}
+                className={`${gotu.className} text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[var(--text-dark-gray)] mb-4 leading-tight`}
                 variants={itemVariants}
               >
                 Empowering <br />
                 <span className={`${cormorant_garamond.className} text-[#087dc0] bg-clip-text font-semibold `}>
                   Efficient Heating
                 </span><br />
-                & Smart Energy Solutions
+                &
+                Smart Energy
+                <br /> Solutions
               </motion.h1>
 
               <motion.p
-                className="text-gray-600 text-sm md:text-base lg:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0"
+                className="text-black  lg:text-gray-600 text-base md:text-lg lg:text-xl  leading-relaxed max-w-lg mx-auto lg:mx-0 mb-2"
                 variants={itemVariants}
               > 
                 ISO certified leader in sustainable heating, cooling, and renewable energy solutions for industries and households.
               </motion.p>
 
               <motion.div
-                className="flex flex-col sm:flex-row gap-3 md:gap-4 items-center justify-center lg:justify-start pt-2"
+                className="flex flex-row gap-3 md:gap-4 items-center justify-center lg:justify-start pt-1 flex-wrap"
                 variants={itemVariants}
               >
                 <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
                   <Link
                     href="/about"
-                    className="w-full sm:w-auto px-6 md:px-8 py-2.5 md:py-3 text-xs md:text-sm font-semibold text-white bg-gradient-to-r from-[#FFD700] to-[#4169E1] rounded-full shadow-md transition text-center"
+                    className="inline-block px-4 md:px-6 py-2 md:py-3 text-sm md:text-base font-semibold text-white bg-gradient-to-r from-[#FFD700] to-[#4169E1] rounded-full shadow-md transition text-center whitespace-nowrap"
                   >
                     Learn More
                   </Link>
@@ -92,7 +94,7 @@ export default function HeroSlider() {
                 <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
                   <Link
                     href="/contact"
-                    className="w-full sm:w-auto px-6 md:px-8 py-2.5 md:py-3 text-xs md:text-sm font-semibold text-[#4169E1] bg-white/90 backdrop-blur-sm rounded-full shadow-md border border-[#4169E1]/30 transition text-center"
+                    className="inline-block px-4 md:px-6 py-2 md:py-3 text-sm md:text-base font-semibold text-[#4169E1] bg-white/90 backdrop-blur-sm rounded-full shadow-md border border-[#4169E1]/30 transition text-center whitespace-nowrap"
                   >
                     Get Free Quote
                   </Link>
