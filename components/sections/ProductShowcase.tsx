@@ -5,7 +5,7 @@ import ProductCard from './ProductCard';
 
 const products = [
   {
-    image: "/images/swimming-pool-air-source-heat-pump.jpg",
+    image: "/images/demo-branding-agency-home-03.png",
     title: "Swimming Pool Heat Pump",
     description: "Our specialized Swimming Pool Heat Pumps are built to maintain comfortable water temperatures while minimizing energy costs.",
     href: "/products/swimming-pool-heat-pump"
