@@ -18,7 +18,7 @@ export default function AboutIntro() {
       title: "Advanced Heat Pump Technology",
     },
     {
-      src: "/images/demo-branding-agency-home-03.jpg",
+      src: "/images/demo-branding-agency-home-03.png",
       alt: "Industrial Heating Setup",
       title: "Industrial Scale Solutions",
     },
