@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
 import Script from "next/script";
+import StickyContactButtons from "@/components/ui/StickyButtons";
 
 export const metadata: Metadata = {
   title: "MifTech Solution",
@@ -45,6 +46,7 @@ export default function RootLayout({
 
         <Header />
         <main>{children}</main>
+        <StickyContactButtons />
         <Footer />
       </body>
     </html>
