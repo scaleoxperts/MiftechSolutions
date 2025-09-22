@@ -10,13 +10,40 @@ const gotu = Gotu({ subsets: ['latin'], weight: '400' });
 const lato = Lato({ subsets: ['latin'], weight: '700' });
 
 const features = [
-  "Dual Function: Works as a chiller in summer & heater in winter",
-  "High Efficiency: Produces up to 5x the energy it consumes",
-  "Weather-Resistant: Operates in ambient temperatures up to 45°C",
-  "Cost-Effective: Reduces operating costs by 60%–80% compared to gas/oil/electric",
-  "Eco-Friendly: Uses green refrigerants with low carbon footprint",
-  "Durable Design: Titanium heat exchanger for long life in chlorinated/salt water pools",
-  "Smart Control: Automatic switching between heating and cooling",
+  "✅ Dual Function: Works as a chiller in summer & heater in winter",
+  "✅ High Efficiency: Produces up to 5x the energy it consumes",
+  "✅ Weather-Resistant: Operates in ambient temperatures up to 45°C",
+  "✅ Cost-Effective: Reduces operating costs by 60%–80% compared to gas/oil/electric",
+  "✅ Eco-Friendly: Uses green refrigerants with a low carbon footprint",
+  "✅ Durable Design: Titanium heat exchanger for long life in chlorinated/salt water pools",
+  "✅ Smart Control: Automatic switching between heating and cooling",
+];
+
+const performanceData = [
+  "Heating & Cooling Capacity: 10 kW – 300 kW (model dependent)",
+  "Operating Temperature Range: –7°C to +45°C",
+  "Water Outlet Temperature Range: 15°C – 40°C",
+  "Coefficient of Performance (COP): Up to 5.0",
+  "Energy Savings: 60%–80% vs. electric/gas/oil heaters",
+  "Applications: Pools (indoor/outdoor), spas, water parks, sports complexes",
+];
+
+const techSpecs = [
+  "Power Supply: 220V – 240V (Single Phase) or 380V – 415V (Three Phase)",
+  "Refrigerant: R410A / R417A/ R407C (eco-friendly options available)",
+  "Compressor Type: Scroll / Rotary (inverter-driven for efficiency)",
+  "Heat Exchanger: Titanium – corrosion-resistant & durable",
+  "Noise Level: ≤ 55 dB(A)",
+  "Control System: Microprocessor / Smart controller with temperature presets",
+  "Installation: Suitable for both new pools and retrofit projects",
+];
+
+const applications = [
+  "Residential & commercial swimming pools",
+  "Luxury villas & resorts",
+  "Hotels & wellness centres",
+  "Spas & Jacuzzis",
+  "Water parks & sports facilities",
 ];
 
 export default function SwimmingPoolHeatPumpPage() {
@@ -40,7 +67,7 @@ export default function SwimmingPoolHeatPumpPage() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className={`mt-4 text-lg text-gray-700 max-w-2xl mx-auto ${lato.className}`}
           >
-            Brand: MifTech Solution | Applications: Swimming Pools, Spas, Resorts, Sports Complexes
+            Brand: MifTech Solution | Application: Swimming Pools | Spas | Resorts | Sports Complexes
           </motion.p>
         </div>
       </section>
@@ -55,7 +82,7 @@ export default function SwimmingPoolHeatPumpPage() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto text-gray-700 space-y-4"
           >
-            <h2 className={`text-3xl font-bold ${gotu.className} text-[var(--text-dark-gray)]`}>Product Overview</h2>
+            <h2 className={`text-3xl font-bold text-[#087dc0] ${gotu.className}`}>Product Overview</h2>
             <p className={`${lato.className}`}>
               MifTech Solution’s Swimming Pool Water Heater is engineered for precise water temperature control in both swimming pools and spas, ensuring comfort during hot summers and cold winters. Built with tropicalized designs, the system withstands extreme Indian weather conditions and operates efficiently at ambient temperatures up to 45°C, without compressor tripping or failure.
             </p>
@@ -75,14 +102,24 @@ export default function SwimmingPoolHeatPumpPage() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative w-full h-96 lg:h-[500px] rounded-lg overflow-hidden shadow-2xl"
+            className="space-y-8"
           >
-            <Image 
-              src="/images/Swimming-Pool.png" 
-              alt="Swimming Pool Heat Pump" 
-              fill 
-              className="object-cover" 
-            />
+            <div className="relative w-full h-80 rounded-lg overflow-hidden shadow-2xl">
+              <Image
+                src="/images/swim1.jpg"
+                alt="Swimming Pool Heat Pump"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="relative w-full h-80 rounded-lg overflow-hidden shadow-2xl">
+              <Image
+                src="/images/swim2.jpg"
+                alt="Swimming Pool Heat Pump in use"
+                fill
+                className="object-cover"
+              />
+            </div>
           </motion.div>
 
           <motion.div
@@ -91,13 +128,10 @@ export default function SwimmingPoolHeatPumpPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className={`text-3xl font-bold mb-6 text-[var(--text-dark-gray)] ${gotu.className}`}>Key Features</h2>
+            <h2 className={`text-3xl font-bold mb-6 text-[#087dc0] ${gotu.className}`}>Key Features</h2>
             <ul className="space-y-4 text-gray-700">
               {features.map((feature, index) => (
                 <li key={index} className="flex items-start">
-                  <div className="flex-shrink-0 w-6 h-6 bg-[var(--dark-gray)] text-[var(--white)] rounded-full flex items-center justify-center mr-4 mt-1">
-                    ✓
-                  </div>
                   <span className={`${lato.className}`}>{feature}</span>
                 </li>
               ))}
@@ -115,7 +149,27 @@ export default function SwimmingPoolHeatPumpPage() {
         </div>
       </section>
 
-      {/* Applications */}
+      {/* Performance Data */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto text-gray-700 space-y-4"
+          >
+            <h2 className={`text-3xl font-bold text-[#087dc0] ${gotu.className}`}>Performance Data</h2>
+            <ul className={`list-disc pl-6 space-y-2 ${lato.className}`}>
+              {performanceData.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Technical Specifications */}
       <section className="py-16 bg-[var(--linen)]/40">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -125,13 +179,31 @@ export default function SwimmingPoolHeatPumpPage() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto text-gray-700 space-y-4"
           >
-            <h2 className={`text-3xl font-bold ${gotu.className} text-[var(--text-dark-gray)]`}>Applications</h2>
-            <ul className="list-disc pl-6 space-y-2 ${lato.className}">
-              <li>Residential & commercial swimming pools</li>
-              <li>Luxury villas & resorts</li>
-              <li>Hotels & wellness centers</li>
-              <li>Spas & Jacuzzis</li>
-              <li>Water parks & sports facilities</li>
+            <h2 className={`text-3xl font-bold text-[#087dc0] ${gotu.className}`}>Technical Specifications</h2>
+            <ul className={`list-disc pl-6 space-y-2 ${lato.className}`}>
+              {techSpecs.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Applications */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto text-gray-700 space-y-4"
+          >
+            <h2 className={`text-3xl font-bold text-[#087dc0] ${gotu.className}`}>Applications</h2>
+            <ul className={`list-disc pl-6 space-y-2 ${lato.className}`}>
+              {applications.map((app, index) => (
+                <li key={index}>{app}</li>
+              ))}
             </ul>
           </motion.div>
         </div>
@@ -145,7 +217,7 @@ export default function SwimmingPoolHeatPumpPage() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className={`text-3xl font-bold mb-6 ${gotu.className}`}>
+          <h2 className={`text-3xl font-bold mb-6 text-[#087dc0] ${gotu.className}`}>
             Ready to Install a Swimming Pool Heat Pump?
           </h2>
           <Link 
