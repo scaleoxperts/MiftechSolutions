@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
+import ContactUs from "@/components/sections/ContactUs";
 import { motion } from "motion/react";
-import { Gotu, Cormorant_Garamond, Lato } from "next/font/google";
+import { Cormorant_Garamond, Gotu, Lato } from "next/font/google";
 
 const gotu = Gotu({ subsets: ["latin"], weight: "400" });
 const cormorant = Cormorant_Garamond({ subsets: ["latin"], weight: "400" });
@@ -28,7 +28,7 @@ export default function ContactPage() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className={`mt-6 text-lg text-gray-700 leading-relaxed ${lato.className}`}
           >
-           {" Reach out to us to discuss how our Heat Pump solutions can save energy and improve efficiency for your business or home."}
+            Reach out to us to discuss how our Heat Pump solutions can save energy and improve efficiency for your business or home.
           </motion.p>
         </div>
       </section>
@@ -54,57 +54,8 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Image + Form / Contact CTA Section */}
       <section className="py-20 bg-[var(--white)]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            
-            {/* Image */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative w-full h-96 lg:h-[500px] rounded-lg overflow-hidden shadow-xl"
-            >
-              <Image
-                src="/images/demo-branding-agency-contact-01.jpg"
-                alt="Contact MifTech"
-                fill
-                className="object-cover"
-              />
-            </motion.div>
-
-            {/* Content */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="space-y-6"
-            >
-              <div className="flex items-center mb-4">
-                <span className="w-8 h-px bg-[#087dc0] mr-2"></span>
-                <span className="text-sm font-bold uppercase tracking-widest text-[#087dc0]">Get in touch</span>
-              </div>
-              <h2 className={`text-3xl md:text-4xl font-bold text-[var(--text-dark-gray)] ${gotu.className}`}>
-                We&apos;d love to <span className={`${cormorant.className} italic text-[#087dc0]`}>hear from you</span>!
-              </h2>
-              <p className={`text-gray-700 leading-relaxed ${lato.className}`}>
-                Send us a message or schedule a consultation to learn how we can help you achieve your energy-saving goals with innovative Heat Pump technology.
-              </p>
-
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                href="mailto:info@miftechsolution.com"
-                className="inline-block px-8 py-4 text-white font-bold rounded-full bg-[#087dc0] shadow-lg hover:shadow-xl transition"
-              >
-                Contact Us
-              </motion.a>
-            </motion.div>
-
-          </div>
-        </div>
+        <ContactUs currentRoute={"/contact"}  />
       </section>
     </main>
   );
