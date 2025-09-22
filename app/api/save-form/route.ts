@@ -4,18 +4,29 @@ import z from "zod";
 
 const FormDataProp = z.object({
     name: z.string(),
-    email: z.email(),
+    email: z.string().email(),
     phone: z.string().min(10).max(15),
     message: z.string().optional().default("NO-MESSAGE"),
 });
 
 export type FormData = z.infer<typeof FormDataProp>;
 
+function formatDate(date: Date): string {
+    return date.toLocaleString("en-IN", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+    });
+}
+
 export async function POST(req: NextRequest) {
     try {
         const body = await req.json();
         console.log(body);
-        
+
         const parsed = FormDataProp.safeParse(body);
 
         if (!parsed.success) {
@@ -34,7 +45,13 @@ export async function POST(req: NextRequest) {
             valueInputOption: "USER_ENTERED",
             requestBody: {
                 values: [
-                    [data.name, data.phone, data.email, data.message, new Date().toISOString()],
+                    [
+                        data.name,
+                        data.phone,
+                        data.email,
+                        data.message,
+                        formatDate(new Date()),
+                    ],
                 ],
             },
         });
@@ -43,14 +60,14 @@ export async function POST(req: NextRequest) {
     } catch (err: unknown) {
         console.error("Error in save-form route:", err);
         if (err instanceof Error) {
-          return NextResponse.json(
-            { success: false, error: err.message },
-            { status: 500 }
-          );
+            return NextResponse.json(
+                { success: false, error: err.message },
+                { status: 500 }
+            );
         }
         return NextResponse.json(
-          { success: false, error: "An unknown error occurred" },
-          { status: 500 }
+            { success: false, error: "An unknown error occurred" },
+            { status: 500 }
         );
-      }
+    }
 }
