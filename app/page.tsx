@@ -5,6 +5,9 @@ import ProductShowcase from "@/components/sections/ProductShowcase";
 import Stats from "@/components/sections/Stats";
 import Testimonials from "@/components/sections/Testimonials";
 import SmoothScrollWrapper from "@/components/ui/SmoothScrollWrapper";
+import Certificates from "../components/Certificates";
+import GstAndOther from "../components/Gst_and_Other";
+
 
 
 
@@ -18,6 +21,8 @@ export default function HomePage() {
         <Stats />
         <Faq />
         <Testimonials />
+        <Certificates />
+        <GstAndOther />
       </SmoothScrollWrapper>
     </>
   );

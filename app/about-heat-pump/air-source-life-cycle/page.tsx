@@ -1,8 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { Gotu, Lato } from "next/font/google";
+
+
 
 // Fonts
 const gotu = Gotu({ subsets: ["latin"], weight: "400" });
@@ -92,7 +94,7 @@ export default function LifecyclePage() {
           transition={{ duration: 0.8 }}
         >
           <h2
-            className={`text-3xl font-bold text-[var(--base-color)] mb-4 ${gotu.className}`}
+            className={`text-3xl font-bold  mb-4 ${gotu.className} text-[#087dc0]`}
           >
             What is an Air Source Heat Pump?
           </h2>
@@ -126,7 +128,7 @@ export default function LifecyclePage() {
           transition={{ duration: 0.8 }}
         >
           <h2
-            className={`text-3xl font-bold text-[var(--base-color)] mb-4 ${gotu.className}`}
+            className={`text-3xl font-bold text-[#087dc0] mb-4 ${gotu.className}`}
           >
             How Does It Work?
           </h2>
@@ -151,7 +153,7 @@ export default function LifecyclePage() {
           transition={{ duration: 0.8 }}
         >
           <h2
-            className={`text-3xl font-bold text-[var(--base-color)] mb-4 ${gotu.className}`}
+            className={`text-3xl font-bold text-[#087dc0] mb-4 ${gotu.className}`}
           >
             Energy Efficiency
           </h2>
@@ -190,7 +192,7 @@ export default function LifecyclePage() {
             transition={{ duration: 0.8 }}
           >
             <h2
-              className={`text-3xl md:text-4xl font-bold text-center text-[var(--base-color)] mb-12 ${gotu.className}`}
+              className={`text-3xl md:text-4xl font-bold text-center text-[#087dc0] mb-12 ${gotu.className}`}
             >
               Key Benefits of Air Source Heat Pumps
             </h2>
@@ -223,6 +225,8 @@ export default function LifecyclePage() {
           </motion.div>
         </div>
       </section>
+
+
     </main>
   );
 }

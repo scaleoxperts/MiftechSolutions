@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { motion } from "motion/react";
 import { Gotu, Cormorant_Garamond, Lato } from "next/font/google";
+import Certificates from "../../components/Certificates";
+import GstAndOther from "../../components/Gst_and_Other";
 
 const gotu = Gotu({ subsets: ["latin"], weight: "400" });
 const cormorant = Cormorant_Garamond({ subsets: ["latin"], weight: "400" });
@@ -145,6 +147,9 @@ export default function AboutPage() {
           
         </div>
       </section>
+            {/* Certificates and GST */}
+            <Certificates />
+      <GstAndOther />
     </main>
   );
 }
