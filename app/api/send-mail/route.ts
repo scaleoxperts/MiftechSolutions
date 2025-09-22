@@ -26,19 +26,66 @@ export async function POST(request: NextRequest) {
         const subject = `Thank You ${recipientName} for connecting with us`
 
         const htmlContent = `
-            <!DOCTYPE html>
-            <html>
-            <head>
-                <meta charset="utf-8">
-                <title>Thank You</title>
-            </head>
-            <body>
-                <h1>Thank You ${recipientName}!</h1>
-                <p>We have received your inquiry and will get back to you soon.</p>
-                <p>Best regards,<br>Miftech Solutions Team</p>
-            </body>
-            </html>
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="utf-8">
+          <title>Thank You</title>
+        </head>
+        <body style="margin:0; padding:0; font-family: Arial, sans-serif; background-color: #f4f9ff;">
+          <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+              <td align="center" style="padding: 30px 15px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" width="600" style="max-width: 600px; background: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                  
+                  <!-- Header -->
+                  <tr>
+                    <td align="center" style="background: #087dc0; padding: 25px;">
+                      <h1 style="margin:0; font-size: 24px; color: #ffffff; font-weight: bold;">Miftech Solutions</h1>
+                    </td>
+                  </tr>
+                  
+                  <!-- Body -->
+                  <tr>
+                    <td style="padding: 30px; color: #333333; line-height: 1.6;">
+                      <h2 style="margin-top:0; color: #087dc0;">Thank You, ${recipientName}!</h2>
+                      <p style="font-size: 16px; margin: 15px 0;">
+                        We’ve received your inquiry and our team will reach out to you soon.
+                      </p>
+                      <p style="font-size: 16px; margin: 15px 0;">
+                        In the meantime, feel free to explore our solutions and services.
+                      </p>
+                      <p style="font-size: 15px; margin: 25px 0 0 0; color: #555;">
+                        Best regards,<br>
+                        <strong>Miftech Solutions Team</strong>
+                      </p>
+                    </td>
+                  </tr>
+                  
+                  <!-- Button -->
+                  <tr>
+                    <td align="center" style="padding: 20px;">
+                      <a href="https://miftechsolution.com/" target="_blank" style="display:inline-block; padding: 12px 24px; background: #087dc0; color: #ffffff; text-decoration: none; border-radius: 6px; font-size: 16px; font-weight: bold;">
+                        Visit Our Website
+                      </a>
+                    </td>
+                  </tr>
+                  
+                  <!-- Footer -->
+                  <tr>
+                    <td align="center" style="background: #f1f1f1; padding: 15px; font-size: 12px; color: #777;">
+                      © ${new Date().getFullYear()} Miftech Solutions. All rights reserved.
+                    </td>
+                  </tr>
+                  
+                </table>
+              </td>
+            </tr>
+          </table>
+        </body>
+        </html>
         `
+        
 
         const textContent = `Thank You ${recipientName}! We have received your inquiry and will get back to you soon. Best regards, Miftech Solutions Team`
 
