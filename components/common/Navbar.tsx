@@ -34,6 +34,7 @@ const navLinks: NavItem[] = [
       { href: "/products/domestic-heat-pump", label: "Domestic" },
       { href: "/products/commercial-heat-pump", label: "Commercial" },
       { href: "/products/swimming-pool-heat-pump", label: "Swimming Pool" },
+      { href: "/products/all-in-one-heat-pump", label: "All in One Heat Pump" },
       { href: "/products/industrial-heat-pump", label: "Industrial Air Source Heat Pump" },
     ],
   },
