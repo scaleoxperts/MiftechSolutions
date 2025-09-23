@@ -45,7 +45,7 @@ export default function Footer() {
           </div>
         </div>
         <div>
-          <p className="text-xs">&copy; {new Date().getFullYear()} MifTech Solution. Website Design & developed by <a href="https://scaleoxperts.com/" target="_blank" rel="noopener noreferrer" className="underline hover:text-[var(--base-color)]">The ScaleOXperts</a></p>
+          <p className="text-xs">&copy; {new Date().getFullYear()} MifTech Solution. Website Design & developed by <a href="https://scaleoxperts.com/" target="_blank" rel="noopener noreferrer" className="underline hover:text-[var(--base-color)]">ScaleOXperts</a></p>
         </div>
       </div>
     </footer>
