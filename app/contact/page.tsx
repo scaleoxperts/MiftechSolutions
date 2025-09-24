@@ -1,6 +1,5 @@
 "use client";
 
-import ContactUs from "@/components/sections/ContactUs";
 import { motion } from "motion/react";
 import { Cormorant_Garamond, Gotu, Lato } from "next/font/google";
 
@@ -103,12 +102,6 @@ export default function ContactPage() {
             </div>
           </motion.div>
         </div>
-      </section>
-
-
-      {/* Contact Form Section */}
-      <section className="py-20 bg-[var(--white)]">
-        <ContactUs currentRoute={"/contact"} />
       </section>
     </main>
   );
