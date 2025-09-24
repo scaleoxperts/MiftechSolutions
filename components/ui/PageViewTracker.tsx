@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 
 declare global {
   interface Window {
-    dataLayer: Array<Record<string, unknown>>;
+    dataLayer?: Array<Record<string, unknown>>;
   }
 }
 
@@ -18,11 +18,19 @@ export const PageViewTracker = () => {
 
     const url = pathname + (searchParams.toString() ? `?${searchParams}` : '');
 
-    // Push pageview to GTM
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: 'pageview',
-      page: url,
+      page_location: window.location.href,
+      page_path: pathname,
+      page_title: document.title,
+    });
+
+    console.log('[GTM] pageview', {
+      url,
+      page_location: window.location.href,
+      page_path: pathname,
+      page_title: document.title,
     });
   }, [pathname, searchParams]);
 
