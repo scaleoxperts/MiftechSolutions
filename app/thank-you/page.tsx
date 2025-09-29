@@ -1,9 +1,8 @@
 "use client";
 import { motion } from "motion/react";
 import { Cormorant_Garamond, Gotu, Lato } from "next/font/google";
-import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 const gotu = Gotu({ weight: "400", subsets: ["latin"] });
 const cormorant_garamond = Cormorant_Garamond({
@@ -13,13 +12,14 @@ const cormorant_garamond = Cormorant_Garamond({
 });
 const lato = Lato({ subsets: ["latin"], weight: "400" });
 
-export default function ThankYou() {
+function ThankYouContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [countdown, setCountdown] = useState(8);
 
-  const name = searchParams.get("name");
-  const email = searchParams.get("email");
+  const name = searchParams.get("name") || "Guest";
+  const email = searchParams.get("email") || "";
+
+  const [countdown, setCountdown] = useState(8);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -44,7 +44,6 @@ export default function ThankYou() {
         transition={{ duration: 0.6 }}
         className="bg-white shadow-xl rounded-2xl p-6 sm:p-8 max-w-md w-full text-center"
       >
-        {/* Success Icon */}
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
@@ -66,7 +65,6 @@ export default function ThankYou() {
           </svg>
         </motion.div>
 
-        {/* Text Section */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -75,55 +73,25 @@ export default function ThankYou() {
           <h1
             className={`text-2xl sm:text-3xl font-bold text-[var(--text-dark-gray)] mb-3 ${gotu.className}`}
           >
-            Thank You{ name ? `, ${name}` : "!" }
+            Thank You, {name}!
           </h1>
 
           <p
             className={`text-lg text-[#087dc0] mb-4 ${cormorant_garamond.className}`}
           >
-            Your message has been sent successfully
+            We’ve received your message successfully.
           </p>
 
           <p
             className={`text-gray-600 text-sm leading-relaxed mb-6 ${lato.className}`}
           >
-            {name ? `${name.split(" ")[0]},` : "We"} really appreciate you reaching out.
-            We’ll get back to you within 24 hours at{" "}
-            <span className="font-semibold text-[#087dc0]">{email}</span>.
+            A confirmation has been sent to{" "}
+            <span className="font-semibold text-[#087dc0]">{email}</span>.  
+            We’ll get back to you within 24 hours.
           </p>
         </motion.div>
 
-        {/* Buttons */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-          className="space-y-4"
-        >
-          <div className="flex flex-col xs:flex-row gap-3">
-            <Link href="/" className="flex-1">
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className={`w-full bg-[#087dc0] text-white font-semibold px-6 py-2.5 rounded-lg shadow-md hover:shadow-lg hover:bg-[#076ba8] transition-all text-sm ${lato.className}`}
-              >
-                Homepage
-              </motion.button>
-            </Link>
-
-            <Link href="/services" className="flex-1">
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className={`w-full bg-white text-[#087dc0] font-semibold px-6 py-2.5 rounded-lg border border-[#087dc0] hover:bg-[#087dc0] hover:text-white transition-all text-sm ${lato.className}`}
-              >
-                Our Services
-              </motion.button>
-            </Link>
-          </div>
-
-          {/* Countdown */}
-          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7, duration: 0.5 }}
@@ -143,8 +111,15 @@ export default function ThankYou() {
               <span className={lato.className}>sec</span>
             </div>
           </motion.div>
-        </motion.div>
       </motion.div>
     </div>
+  );
+}
+
+export default function ThankYouPage() {
+  return (
+    <Suspense fallback={<div className="text-center">Loading...</div>}>
+      <ThankYouContent />
+    </Suspense>
   );
 }
