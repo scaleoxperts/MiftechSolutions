@@ -5,18 +5,40 @@ import ClientLogoCloud from '@/components/ui/ClientLogoCloud';
 import Link from 'next/link';
 import { motion } from 'motion/react';
 import { Gotu, Lato } from 'next/font/google';
+import { Zap, SunSnow, ThermometerSun, Wallet, Leaf, ShieldCheck, Cog } from 'lucide-react';
 
 const gotu = Gotu({ subsets: ['latin'], weight: '400' });
 const lato = Lato({ subsets: ['latin'], weight: '700' });
 
 const features = [
-  "✅ Dual Function: Works as a chiller in summer & heater in winter",
-  "✅ High Efficiency: Produces up to 5x the energy it consumes",
-  "✅ Weather-Resistant: Operates in ambient temperatures up to 45°C",
-  "✅ Cost-Effective: Reduces operating costs by 60%–80% compared to gas/oil/electric",
-  "✅ Eco-Friendly: Uses green refrigerants with a low carbon footprint",
-  "✅ Durable Design: Titanium heat exchanger for long life in chlorinated/salt water pools",
-  "✅ Smart Control: Automatic switching between heating and cooling",
+  {
+    icon: SunSnow,
+    text: "Dual Function: Works as a chiller in summer & heater in winter",
+  },
+  {
+    icon: Zap,
+    text: "High Efficiency: Produces up to 5x the energy it consumes",
+  },
+  {
+    icon: ThermometerSun,
+    text: "Weather-Resistant: Operates in ambient temperatures up to 45°C",
+  },
+  {
+    icon: Wallet,
+    text: "Cost-Effective: Reduces operating costs by 60%–80% compared to gas/oil/electric",
+  },
+  {
+    icon: Leaf,
+    text: "Eco-Friendly: Uses green refrigerants with a low carbon footprint",
+  },
+  {
+    icon: ShieldCheck,
+    text: "Durable Design: Titanium heat exchanger for long life in chlorinated/salt water pools",
+  },
+  {
+    icon: Cog,
+    text: "Smart Control: Automatic switching between heating and cooling",
+  },
 ];
 
 const performanceData = [
@@ -73,7 +95,7 @@ export default function SwimmingPoolHeatPumpPage() {
       </section>
 
       {/* Product Overview */}
-      <section className="py-16 bg-[var(--linen)]/40">
+      <section className="py-16 bg-[var(--linen)]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -94,7 +116,7 @@ export default function SwimmingPoolHeatPumpPage() {
       </section>
 
       {/* Image & Key Features */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
           
           <motion.div
@@ -131,15 +153,18 @@ export default function SwimmingPoolHeatPumpPage() {
             <h2 className={`text-3xl font-bold mb-6 text-[#087dc0] ${gotu.className}`}>Key Features</h2>
             <ul className="space-y-4 text-gray-700">
               {features.map((feature, index) => (
-                <li key={index} className="flex items-start">
-                  <span className={`${lato.className}`}>{feature}</span>
+                <li key={index} className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-[#087dc0]/10 text-[#087dc0] rounded-full flex items-center justify-center">
+                    <feature.icon className="w-5 h-5" />
+                  </div>
+                  <span className={`${lato.className} flex-1 pt-1`}>{feature.text}</span>
                 </li>
               ))}
             </ul>
             <div className="mt-8">
               <Link 
                 href="/contact" 
-                className="inline-block px-8 py-3 text-lg font-semibold text-[var(--white)] bg-[#087dc0] rounded-full hover:bg-opacity-80 transition-all"
+                className="inline-block px-8 py-3 text-lg font-semibold text-white bg-[#087dc0] rounded-lg shadow-md hover:bg-opacity-90 transition-all"
               >
                 Contact Us Now
               </Link>
@@ -150,7 +175,7 @@ export default function SwimmingPoolHeatPumpPage() {
       </section>
 
       {/* Performance Data */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-[var(--linen)]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -170,7 +195,7 @@ export default function SwimmingPoolHeatPumpPage() {
       </section>
 
       {/* Technical Specifications */}
-      <section className="py-16 bg-[var(--linen)]/40">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -190,7 +215,7 @@ export default function SwimmingPoolHeatPumpPage() {
       </section>
 
       {/* Applications */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-[var(--linen)]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -210,7 +235,7 @@ export default function SwimmingPoolHeatPumpPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 text-center">
+      <section className="py-20 text-center bg-white">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -229,7 +254,9 @@ export default function SwimmingPoolHeatPumpPage() {
         </motion.div>
       </section>
 
-      <ClientLogoCloud />
+      <section className="bg-[var(--linen)]">
+        <ClientLogoCloud />
+      </section>
     </main>
   );
 }
