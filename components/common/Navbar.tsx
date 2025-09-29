@@ -1,15 +1,13 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
-import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { Gotu, Cormorant_Garamond, Lato } from "next/font/google";
 import { ChevronDown } from "lucide-react";
+import { Lato } from "next/font/google";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
 
-const gotu = Gotu({ subsets: ["latin"], weight: "400" });
-const cormorant = Cormorant_Garamond({ subsets: ["latin"], weight: "400" });
 const lato = Lato({ subsets: ["latin"], weight: "700" });
 
 interface NavItem {
@@ -36,6 +34,7 @@ const navLinks: NavItem[] = [
       { href: "/products/domestic-heat-pump", label: "Domestic" },
       { href: "/products/commercial-heat-pump", label: "Commercial" },
       { href: "/products/swimming-pool-heat-pump", label: "Swimming Pool" },
+      { href: "/products/all-in-one-heat-pump", label: "All in One Heat Pump" },
       { href: "/products/industrial-heat-pump", label: "Industrial Air Source Heat Pump" },
     ],
   },
@@ -51,11 +50,11 @@ export default function Navbar() {
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center flex-shrink-0">
-            <Image 
-              src="/images/miftechlogo1.png" 
-              alt="MifTech Logo" 
-              width={150} 
-              height={50} 
+            <Image
+              src="/images/miftechlogo1.png"
+              alt="MifTech Logo"
+              width={150}
+              height={50}
               className="h-auto w-auto max-h-12"
             />
           </Link>
@@ -73,8 +72,8 @@ export default function Navbar() {
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
-                  <motion.div 
-                    key={link.label} 
+                  <motion.div
+                    key={link.label}
                     variants={{
                       hidden: { opacity: 0, y: -10 },
                       visible: { opacity: 1, y: 0, transition: { duration: 0.3 } }
@@ -85,9 +84,8 @@ export default function Navbar() {
                       <div className="relative group">
                         <Link
                           href={link.href}
-                          className={`flex items-center px-2 lg:px-3 py-2 text-base lg:text-lg font-medium cursor-pointer transition-colors whitespace-nowrap ${
-                            isActive ? "text-[#087dc0]" : "text-[var(--dark-gray)] hover:text-[#087dc0]"
-                          }`}
+                          className={`flex items-center px-2 lg:px-3 py-2 text-base lg:text-lg font-medium cursor-pointer transition-colors whitespace-nowrap ${isActive ? "text-[#087dc0]" : "text-[var(--dark-gray)] hover:text-[#087dc0]"
+                            }`}
                         >
                           {link.label}
                           <ChevronDown className="ml-1 h-3 w-3 lg:h-4 lg:w-4" />
@@ -97,9 +95,8 @@ export default function Navbar() {
                             <Link
                               key={sub.href}
                               href={sub.href}
-                              className={`block px-4 py-2 text-sm lg:text-base transition-colors ${
-                                pathname === sub.href ? "text-[#087dc0] bg-gray-50" : "text-[var(--dark-gray)] hover:text-[#087dc0] hover:bg-gray-50"
-                              }`}
+                              className={`block px-4 py-2 text-sm lg:text-base transition-colors ${pathname === sub.href ? "text-[#087dc0] bg-gray-50" : "text-[var(--dark-gray)] hover:text-[#087dc0] hover:bg-gray-50"
+                                }`}
                             >
                               {sub.label}
                             </Link>
@@ -109,9 +106,8 @@ export default function Navbar() {
                     ) : (
                       <Link
                         href={link.href}
-                        className={`px-2 lg:px-3 py-2 text-base lg:text-lg font-medium transition-colors whitespace-nowrap ${
-                          isActive ? "text-[#087dc0]" : "text-[var(--dark-gray)] hover:text-[#087dc0]"
-                        }`}
+                        className={`px-2 lg:px-3 py-2 text-base lg:text-lg font-medium transition-colors whitespace-nowrap ${isActive ? "text-[#087dc0]" : "text-[var(--dark-gray)] hover:text-[#087dc0]"
+                          }`}
                       >
                         {link.label}
                       </Link>
@@ -143,9 +139,9 @@ export default function Navbar() {
             animate="visible"
             variants={{
               hidden: { opacity: 0 },
-              visible: { 
+              visible: {
                 opacity: 1,
-                transition: { 
+                transition: {
                   duration: 0.3,
                   staggerChildren: 0.1
                 }
@@ -153,15 +149,15 @@ export default function Navbar() {
             }}
             className="md:hidden px-4 pt-4 pb-6 space-y-1 sm:px-6"
           >
-            {navLinks.map((link, index) => {
+            {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
-                <motion.div 
+                <motion.div
                   key={link.label}
                   variants={{
                     hidden: { opacity: 0, x: -20 },
-                    visible: { 
-                      opacity: 1, 
+                    visible: {
+                      opacity: 1,
                       x: 0,
                       transition: { duration: 0.3 }
                     }
@@ -169,22 +165,21 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.href}
-                    className={`flex items-center px-3 py-2 text-lg font-medium cursor-pointer transition-colors ${
-                      isActive ? "text-[#087dc0]" : "text-[var(--dark-gray)] hover:text-[#087dc0]"
-                    }`}
+                    className={`flex items-center px-3 py-2 text-lg font-medium cursor-pointer transition-colors ${isActive ? "text-[#087dc0]" : "text-[var(--dark-gray)] hover:text-[#087dc0]"
+                      }`}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {link.label}
                     {link.submenu && <ChevronDown className="ml-1 h-4 w-4" />}
                   </Link>
                   {link.submenu && (
-                    <motion.div 
+                    <motion.div
                       className="ml-4"
                       variants={{
                         hidden: { opacity: 0 },
-                        visible: { 
+                        visible: {
                           opacity: 1,
-                          transition: { 
+                          transition: {
                             delay: 0.1,
                             staggerChildren: 0.05
                           }
@@ -198,8 +193,8 @@ export default function Navbar() {
                             key={sub.href}
                             variants={{
                               hidden: { opacity: 0, x: -10 },
-                              visible: { 
-                                opacity: 1, 
+                              visible: {
+                                opacity: 1,
                                 x: 0,
                                 transition: { duration: 0.2 }
                               }
@@ -207,9 +202,8 @@ export default function Navbar() {
                           >
                             <Link
                               href={sub.href}
-                              className={`block px-3 py-2 text-base rounded-md transition-colors ${
-                                isSubActive ? "text-[#087dc0]" : "text-[var(--dark-gray)] hover:bg-[var(--linen)] hover:text-[#087dc0]"
-                              }`}
+                              className={`block px-3 py-2 text-base rounded-md transition-colors ${isSubActive ? "text-[#087dc0]" : "text-[var(--dark-gray)] hover:bg-[var(--linen)] hover:text-[#087dc0]"
+                                }`}
                               onClick={() => setIsMenuOpen(false)}
                             >
                               {sub.label}

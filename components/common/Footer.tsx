@@ -26,7 +26,6 @@ export default function Footer() {
               <li><Link href="/" className="hover:text-[var(--base-color)] transition-colors text-sm">Home</Link></li>
               <li><Link href="/about" className="hover:text-[var(--base-color)] transition-colors text-sm">About</Link></li>
               <li><Link href="/products" className="hover:text-[var(--base-color)] transition-colors text-sm">Products</Link></li>
-              <li><Link href="/our_works" className="hover:text-[var(--base-color)] transition-colors text-sm">Our Works</Link></li>
               <li><Link href="/contact" className="hover:text-[var(--base-color)] transition-colors text-sm">Contact</Link></li>
             </ul>
           </div>
@@ -45,7 +44,7 @@ export default function Footer() {
           </div>
         </div>
         <div>
-          <p className="text-xs">&copy; {new Date().getFullYear()} MifTech Solution. Website Design & developed by <a href="https://scaleoxperts.com/" target="_blank" rel="noopener noreferrer" className="underline hover:text-[var(--base-color)]">The ScaleOXperts</a></p>
+          <p className="text-xs">&copy; {new Date().getFullYear()} MifTech Solution. Website Design & developed by <a href="https://scaleoxperts.com/" target="_blank" rel="noopener noreferrer" className="underline hover:text-[var(--base-color)]">ScaleOXperts</a></p>
         </div>
       </div>
     </footer>
