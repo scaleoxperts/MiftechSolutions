@@ -16,9 +16,9 @@ export default function HomePage() {
       <AboutIntro />
       <ProductShowcase />
       <Stats />
+      <DocumentsSection />
       <Faq />
       <Testimonials />
-      <DocumentsSection />
       <ContactUs currentRoute={"/home"} />
     </>
   );
