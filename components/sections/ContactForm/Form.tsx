@@ -2,7 +2,6 @@
 import axios from "axios";
 import { motion } from "motion/react";
 import { Lato } from "next/font/google";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { z } from "zod";
 import { InputField } from "./InputField";
@@ -23,7 +22,6 @@ interface FormErrors {
 }
 
 export function ContactForm({ currentRoute }: ContactFormProps) {
-    const router = useRouter();
     const [formData, setFormData] = useState({
         name: "",
         phone: "",
