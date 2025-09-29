@@ -115,9 +115,9 @@ export function ContactForm({ currentRoute }: ContactFormProps) {
                         recipientName: formData.name
                     });
                     
+                    window.location.href = `/thank-you?name=${encodeURIComponent(formData.name)}&email=${encodeURIComponent(formData.email)}`;
                     setFormData({ name: "", phone: "", email: "", message: "", currentRoute });
                     setFieldErrors({});
-                    router.push('/thank-you');
                 } else {
                     setError(data.error || "Unknown error.");
                 }

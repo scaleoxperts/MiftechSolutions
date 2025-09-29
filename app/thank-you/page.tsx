@@ -2,7 +2,7 @@
 import { motion } from "motion/react";
 import { Cormorant_Garamond, Gotu, Lato } from "next/font/google";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const gotu = Gotu({ weight: "400", subsets: ["latin"] });
@@ -15,14 +15,18 @@ const lato = Lato({ subsets: ["latin"], weight: "400" });
 
 export default function ThankYou() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [countdown, setCountdown] = useState(8);
+
+  const name = searchParams.get("name");
+  const email = searchParams.get("email");
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCountdown((prev) => {
         if (prev <= 1) {
           clearInterval(timer);
-          router.push('/');
+          router.push("/");
           return 0;
         }
         return prev - 1;
@@ -40,6 +44,7 @@ export default function ThankYou() {
         transition={{ duration: 0.6 }}
         className="bg-white shadow-xl rounded-2xl p-6 sm:p-8 max-w-md w-full text-center"
       >
+        {/* Success Icon */}
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
@@ -61,24 +66,34 @@ export default function ThankYou() {
           </svg>
         </motion.div>
 
+        {/* Text Section */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
         >
-          <h1 className={`text-2xl sm:text-3xl font-bold text-[var(--text-dark-gray)] mb-3 ${gotu.className}`}>
-            Thank You!
+          <h1
+            className={`text-2xl sm:text-3xl font-bold text-[var(--text-dark-gray)] mb-3 ${gotu.className}`}
+          >
+            Thank You{ name ? `, ${name}` : "!" }
           </h1>
-          
-          <p className={`text-lg text-[#087dc0] mb-4 ${cormorant_garamond.className}`}>
-            Message sent successfully
+
+          <p
+            className={`text-lg text-[#087dc0] mb-4 ${cormorant_garamond.className}`}
+          >
+            Your message has been sent successfully
           </p>
-          
-          <p className={`text-gray-600 text-sm leading-relaxed mb-6 ${lato.className}`}>
-            We&apos;ve received your inquiry and will get back to you within 24 hours with a personalized response.
+
+          <p
+            className={`text-gray-600 text-sm leading-relaxed mb-6 ${lato.className}`}
+          >
+            {name ? `${name.split(" ")[0]},` : "We"} really appreciate you reaching out.
+            We’ll get back to you within 24 hours at{" "}
+            <span className="font-semibold text-[#087dc0]">{email}</span>.
           </p>
         </motion.div>
 
+        {/* Buttons */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -95,7 +110,7 @@ export default function ThankYou() {
                 Homepage
               </motion.button>
             </Link>
-            
+
             <Link href="/services" className="flex-1">
               <motion.button
                 whileHover={{ scale: 1.02 }}
@@ -107,6 +122,7 @@ export default function ThankYou() {
             </Link>
           </div>
 
+          {/* Countdown */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
