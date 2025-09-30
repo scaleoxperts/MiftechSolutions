@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "motion/react";
 import { Gotu, Cormorant_Garamond, Lato } from "next/font/google";
+import DocumentsSection from "@/components/DocumentsSection";
 
 const gotu = Gotu({ subsets: ["latin"], weight: "400" });
 const cormorant = Cormorant_Garamond({ subsets: ["latin"], weight: "400" });
@@ -79,6 +80,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Certificates and GST */}
+      <DocumentsSection />
 
       <section className="py-20 bg-[var(--white)]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
