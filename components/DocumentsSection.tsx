@@ -1,9 +1,9 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
+import { Gotu } from "next/font/google";
+import Image from "next/image";
 import { useState } from "react";
-import Image, { StaticImageData } from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import { Gotu, Cormorant_Garamond } from "next/font/google";
 
 const gotu = Gotu({ subsets: ["latin"], weight: "400" });
 
@@ -26,23 +26,11 @@ const certificates = [
   },
 ];
 
-const gstImages = [
-  { src: "/images/Gst_and_Other/SEA-RAN_page-0001.jpg", alt: "SEA-RAN" },
-  { src: "/images/Gst_and_Other/GST-FILE_page-0001.jpg", alt: "GST Certificate Page 1" },
-  { src: "/images/Gst_and_Other/GST-FILE_page-0002.jpg", alt: "GST Certificate Page 2" },
-  { src: "/images/Gst_and_Other/GST-FILE_page-0003.jpg", alt: "GST Certificate Page 3" },
-];
+type TabId = "certifications";
 
-type TabId = "certifications" | "gst";
-
-interface DocumentImage {
-  src: string | StaticImageData;
-  alt: string;
-}
 
 const tabs = [
   { id: "certifications" as TabId, label: "Our Certifications", color: "#087dc0", images: certificates },
-  { id: "gst" as TabId, label: "GST & Other Compliance", color: "#087dc0", images: gstImages },
 ];
 
 export default function DocumentsSection() {
@@ -61,11 +49,9 @@ export default function DocumentsSection() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`${
-                activeTab === tab.id ? "text-[var(--text-dark-gray)]" : "text-gray-500 hover:text-gray-800"
-              } relative py-4 px-6 text-lg font-medium transition-colors duration-300 focus:outline-none ${
-                gotu.className
-              }`}
+              className={`${activeTab === tab.id ? "text-[var(--text-dark-gray)]" : "text-gray-500 hover:text-gray-800"
+                } relative py-4 px-6 text-lg font-medium transition-colors duration-300 focus:outline-none ${gotu.className
+                }`}
             >
               {tab.label}
               {activeTab === tab.id && (
