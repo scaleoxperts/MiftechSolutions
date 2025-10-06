@@ -10,19 +10,19 @@ const gotu = Gotu({ subsets: ["latin"], weight: "400" });
 const certificates = [
   {
     src: "/images/certificates/CE_MARKING_OF_EU_MIFTECH_SOLUTIONS_page-0001.jpg",
-    alt: "CE Marking Certificate",
+    alt: "Compliance Certificate Issued to MifTech Solutions",
   },
   {
     src: "/images/certificates/ISO_14001_OF_EU_MIFTECH_SOLUTIONS_page-0001.jpg",
-    alt: "ISO 14001 Certificate",
+    alt: "Certificate Of Registration Of MifTech Solutions",
   },
   {
     src: "/images/certificates/MIFTECH_SOLUTIONS_9001_final_page-0001.jpg",
-    alt: "ISO 9001 Certificate",
+    alt: "Quality Management System Certificate Issued to MifTech Solutions",
   },
   {
     src: "/images/certificates/ROHS_OF_EU_MIFTECH_SOLUTIONS_page-0001.jpg",
-    alt: "ROHS Certificate",
+    alt: "Compliance Certificate By RoHS Compliant Issued to MifTech Solutions",
   },
 ];
 
