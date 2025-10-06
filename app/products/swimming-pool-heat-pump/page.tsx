@@ -107,7 +107,7 @@ export default function SwimmingPoolHeatPumpPage() {
             <div className="relative w-full h-80 rounded-lg overflow-hidden shadow-2xl">
               <Image
                 src="/images/swim1.jpg"
-                alt="Swimming Pool Heat Pump"
+                alt="Two children are Enjoying Swimming in Swimming Pool"
                 fill
                 className="object-cover"
               />
@@ -115,7 +115,7 @@ export default function SwimmingPoolHeatPumpPage() {
             <div className="relative w-full h-80 rounded-lg overflow-hidden shadow-2xl">
               <Image
                 src="/images/swim2.jpg"
-                alt="Swimming Pool Heat Pump in use"
+                alt="A Young Adult is Enjoying Swimming in Swimming Pool"
                 fill
                 className="object-cover"
               />

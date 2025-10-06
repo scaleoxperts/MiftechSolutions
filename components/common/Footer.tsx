@@ -38,9 +38,9 @@ export default function Footer() {
           </div>
 
           <div className="md:col-span-2 flex justify-start md:justify-end items-start space-x-4">
-              <Image src="/images/iso.png" alt="ISO Certified" width={60} height={60} />
-              <Image src="/images/SBA.png" alt="SBA" width={60} height={60} />
-              <Image src="/images/eco.png" alt="Eco Friendly" width={60} height={60} />
+              <Image src="/images/iso.png" alt="ISO Certified Company Mark" width={60} height={60} />
+              <Image src="/images/SBA.png" alt="Swachh Bharat Mission Logo" width={60} height={60} />
+              <Image src="/images/eco.png" alt="Eco Friendly Mark" width={60} height={60} />
           </div>
         </div>
         <div>
