@@ -13,9 +13,9 @@ const cormorant_garamond = Cormorant_Garamond({ weight: '600', subsets: ["latin"
 const lato = Lato({ subsets: ["latin"], weight: "400" })
 
 const slides = [
-  { bg: '/images/demo-branding-agency-slider-01.jpg', alt: 'Close-up of a modern heat pump unit installation.' },
-  { bg: '/images/demo-branding-agency-slider-02.jpg', alt: 'Industrial-scale heating and cooling system.' },
-  { bg: '/images/demo-branding-agency-slider-03.jpg', alt: 'Efficient commercial heat pump in an outdoor setting.' },
+  { bg: '/images/demo-branding-agency-slider-01.jpg' },
+  { bg: '/images/demo-branding-agency-slider-02.jpg' },
+  { bg: '/images/demo-branding-agency-slider-03.jpg' },
 ];
 
 const containerVariants = {
@@ -125,8 +125,6 @@ export default function HeroSlider() {
           {slides.map((slide, idx) => (
             <SwiperSlide key={idx}>
               <motion.div
-                role="img"
-                aria-label={slide.alt}
                 className="h-full w-full bg-cover bg-center"
                 style={{ backgroundImage: `url(${slide.bg})` }}
                 whileHover={{ scale: 1.02 }}

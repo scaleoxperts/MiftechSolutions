@@ -44,7 +44,7 @@ export default function TechnicalSpecificationsPage() {
           <div className="bg-[var(--linen)]/40 p-6 rounded-2xl shadow-lg w-full md:w-4/5 lg:w-2/3">
             <Image
               src="/images/heatpump-technical-specs.png"
-              alt="Performance Data Of MT AEROTHERM 12KW Air Source Heat Pump"
+              alt="Technical Specifications of Heat Pump"
               width={1072}
               height={1517}
               className="rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 w-full h-auto"

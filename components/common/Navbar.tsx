@@ -53,7 +53,7 @@ export default function Navbar() {
           <button onClick={() => navigate("/")} className="flex items-center flex-shrink-0">
             <Image
               src="/images/miftechlogo1.png"
-              alt="Logo of MifTech Solutions"
+              alt="MifTech Logo"
               width={150}
               height={50}
               className="h-auto w-auto max-h-12"

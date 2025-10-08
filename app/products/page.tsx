@@ -13,28 +13,22 @@ const products = [
   { 
     title: "Swimming Pool Heat Pump", 
     description: "Harnesses renewable energy from the air to heat your pool efficiently—delivering significant cost savings while supporting a sustainable lifestyle. Available in flexible models to fit diverse needs.", 
-    img1: "/images/demo-branding-agency-services-01.jpg",
-    alt1: "Heat Pump Operating Cycle Chart",
+    img1: "/images/demo-branding-agency-services-01.jpg", 
     img2: "/images/demo-branding-agency-services-02.jpg",
-    alt2: "Heat Heating System",
     href: "/products/swimming-pool-heat-pump"
   },
   { 
     title: "Commercial Air Source Heat Pump", 
     description: "Powerful, reliable hot water solutions for hotels, hospitals, and nursing homes—offering outstanding economic and environmental benefits while reducing operational costs.", 
-    img1: "/images/demo-branding-agency-services-03.jpg",
-    alt1: "Commercial Air Source Heat Pump",
+    img1: "/images/demo-branding-agency-services-03.jpg", 
     img2: "/images/demo-branding-agency-services-04.jpg",
-    alt2: "Commercial Air Source Heat Pump",
     href: "/products/commercial-heat-pump"
   },
   { 
     title: "Domestic Heat Pump", 
     description: "An eco-friendly replacement for traditional heaters and boilers, saving over 70% on energy by using renewable sources—making sustainable living effortless for households.", 
-    img1: "/images/demo-branding-agency-services-05.jpg",
-    alt1: "Domestic Heat Pump System",
+    img1: "/images/demo-branding-agency-services-05.jpg", 
     img2: "/images/demo-branding-agency-services-06.jpg",
-    alt2: "Domestic Heat Pump System Part",
     href: "/products/domestic-heat-pump"
   },
 ];
@@ -49,7 +43,7 @@ export default function ProductsPage() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-3xl mx-auto text-center"
+            className="max-w-3xl"
           >
             <h1 className={`text-4xl md:text-6xl font-bold text-[var(--text-dark-gray)] ${gotu.className}`}>
               Our  <span className={`${cormorant.className} italic text-[#087dc0]`}>Products</span> & Services
@@ -99,7 +93,7 @@ export default function ProductsPage() {
                 <div className="md:col-span-2 rounded-lg overflow-hidden shadow-2xl">
                   <Image 
                     src={product.img1} 
-                    alt={product.alt1} 
+                    alt={product.title} 
                     width={800} 
                     height={500} 
                     className="w-full h-full object-cover"
@@ -108,7 +102,7 @@ export default function ProductsPage() {
                 <div className="rounded-lg overflow-hidden shadow-2xl">
                   <Image 
                     src={product.img2} 
-                    alt={product.alt2} 
+                    alt={`${product.title} detail`} 
                     width={400} 
                     height={500} 
                     className="w-full h-full object-cover"

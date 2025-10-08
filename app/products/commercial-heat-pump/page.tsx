@@ -16,7 +16,6 @@ export default function CommercialHeatPumpPage() {
     {
       title: "1. Commercial Heat Pump – Hotel & Resorts",
       image: "/images/Commercial-1.png",
-      alt: "Commercial Heat Pump – Hotel & Resorts",
       points: [
         "Large-scale hot water solutions for continuous operation",
         "Hot water outlet up to 75°C",
@@ -28,7 +27,6 @@ export default function CommercialHeatPumpPage() {
     {
       title: "2. Commercial Heat Pump – Industrial & Healthcare",
       image: "/images/Commercial-2.png",
-      alt: "Commercial Heat Pump – Industrial & Healthcare",
       points: [
         "High-capacity system for hospitals, clinics, and industries",
         "Water flow rate: 6 – 30 m³/h depending on model",
@@ -175,7 +173,7 @@ export default function CommercialHeatPumpPage() {
             <div className="relative w-full h-[500px] rounded-lg overflow-hidden shadow-2xl mb-6">
               <Image
                 src="/images/techspeccom.png"
-                alt="Performance Data Of MT AEROTHERM 5KW Air Source Heat Pump"
+                alt="Commercial Heat Pump Technical Specifications"
                 fill
                 className="object-contain"
               />
