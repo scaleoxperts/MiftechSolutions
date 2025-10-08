@@ -108,7 +108,7 @@ export default function LifecyclePage() {
           <div className="my-8 flex justify-center">
             <Image
               src="/images/air-source-life-cycle-1.png"
-              alt="Air Source Heat Pump Diagram"
+              alt="Heat Pump Operating Cycle Chart"
               width={900}
               height={500}
               className="rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 w-full md:w-4/5 lg:w-3/5"
@@ -171,7 +171,7 @@ export default function LifecyclePage() {
           <div className="my-8 flex justify-center">
             <Image
               src="/images/air-source-life-cycle-2.png"
-              alt="Heat Pump Energy Efficiency"
+              alt="Energy Efficiency Heat Pump Chart"
               width={900}
               height={500}
               className="rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 w-full md:w-4/5 lg:w-3/5"

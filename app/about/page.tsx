@@ -72,7 +72,7 @@ export default function AboutPage() {
             >
               <Image
                 src="/images/demo-branding-agency-home-04.jpg"
-                alt="MifTech efficient technology"
+                alt="Heat Heating System"
                 fill
                 className="object-cover"
               />

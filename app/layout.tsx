@@ -1,14 +1,13 @@
 import Footer from "@/components/common/Footer";
 import Header from "@/components/common/Navbar";
 import ContactUs from "@/components/sections/ContactUs";
+import { GTMTracker } from "@/components/ui/GTMTracker";
 import { PageViewTracker } from "@/components/ui/PageViewTracker";
 import StickyContactButtons from "@/components/ui/StickyButtons";
 import { GoogleTagManager } from "@next/third-parties/google";
-import type { Metadata } from "next";
 import { Suspense } from "react";
 import { playfairDisplay, poppins } from "./fonts";
 import "./globals.css";
-import { GTMTracker } from "@/components/ui/GTMTracker";
 
 
 export default function RootLayout({

@@ -8,19 +8,22 @@ const products = [
     image: "/images/demo-branding-agency-home-03.png",
     title: "Swimming Pool Heat Pump",
     description: "Our specialized Swimming Pool Heat Pumps are built to maintain comfortable water temperatures while minimizing energy costs.",
-    href: "/products/swimming-pool-heat-pump"
+    href: "/products/swimming-pool-heat-pump",
+    alt: "Swimming Pool Heat Pump"
   },
   {
     image: "/images/industrial-heat-pump.jpg",
     title: "Commercial & Industrial Heat Pump",
     description: "Powerful and efficient solutions for hotels, hospitals, and large-scale industrial applications, ensuring reliable hot water with significant energy savings.",
-    href: "/products/industrial-heat-pump"
+    href: "/products/industrial-heat-pump",
+    alt: "Commercial Heat Pump - Hotel & Resorts"
   },
   {
     image: "/images/domestic.jpg",
     title: "Domestic & All-In-One Heat Pump",
     description: "Compact and eco-friendly systems designed for residential use, providing a consistent supply of hot water while reducing your carbon footprint.",
-    href: "/products/domestic-heat-pump"
+    href: "/products/domestic-heat-pump",
+    alt: "Domestic and All-In-One Heat Pump"
   }
 ];
 
@@ -43,18 +46,16 @@ export default function ProductShowcase() {
 
         <div ref={container} className="relative">
           {products.map((product, index) => {
-              const targetScale = 0.85 + (index * 0.05); // final scale per card
-              const range = [
-                (index * 0.5) / products.length,
-                (index * 0.5 + 1) / products.length
-              ];
+            const targetScale = 0.85 + (index * 0.05); // final scale per card
+            const range: [number, number] = [
+              (index * 0.5) / products.length,
+              (index * 0.5 + 1) / products.length
+            ];
 
             return (
               <div className='h-[800px] sticky top-0' key={index}>
-                <ProductCard product={product} index={index} progress={scrollYProgress} range={range} targerScale={ targetScale }
-                
-            
-            />
+                <ProductCard product={product} index={index} progress={scrollYProgress} range={range} targerScale={targetScale}
+                />
               </div>
             )
           })}

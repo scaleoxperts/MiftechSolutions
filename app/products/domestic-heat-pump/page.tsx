@@ -16,6 +16,7 @@ export default function DomesticHeatPumpPage() {
     {
       title: "1. All-in-One Domestic Water Heater",
       image: "/images/All-in-One-Domestic-Water-Heater.png",
+      alt: "All-in-One Domestic Water Heater",
       points: [
         "Compact structure with integrated water tank",
         "Hot water outlet temperature up to 55°C",
@@ -27,6 +28,7 @@ export default function DomesticHeatPumpPage() {
     {
       title: "2. Domestic Heat Pump for Spas & Jacuzzis",
       image: "/images/Domestic-Heat-Pump-for-Spas-and-Jacuzzis.png",
+      alt: "All-in-One Domestic Water Heater",
       points: [
         "Specially designed for spa and Jacuzzi applications",
         "Hot water outlet temperature up to 55°C",
@@ -99,7 +101,7 @@ export default function DomesticHeatPumpPage() {
               className="grid lg:grid-cols-2 gap-12 items-center"
             >
               <div className="relative w-full h-96 lg:h-[500px] rounded-lg overflow-hidden shadow-2xl">
-                <Image src={variant.image} alt={variant.title} fill className="object-cover" />
+                <Image src={variant.image} alt={variant.alt} fill className="object-cover" />
               </div>
               <div>
                 <h3 className={`text-2xl font-bold mb-6 ${gotu.className}`}>{variant.title}</h3>
@@ -185,7 +187,7 @@ export default function DomesticHeatPumpPage() {
             <div className="relative w-full h-[500px] rounded-lg overflow-hidden shadow-2xl mb-6">
               <Image
                 src="/images/Techspecs-domestic.png"
-                alt="Domestic Heat Pump Technical Specifications"
+                alt="Performance Data Of MT AEROTHERM 5KW Air Source Heat Pump"
                 fill
                 className="object-contain"
               />
