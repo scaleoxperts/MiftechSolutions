@@ -2,6 +2,7 @@ import Image from 'next/image';
 import ClientLogoCloud from '@/components/ui/ClientLogoCloud';
 import Link from 'next/link';
 
+
 const features = [
   "Water pump inside for plug-and-play installation",
   "Best suited for small homes and domestic applications",

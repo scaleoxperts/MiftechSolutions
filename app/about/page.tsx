@@ -15,7 +15,7 @@ export default function AboutPage() {
 
       <section className="pt-32 pb-20 bg-[var(--white)]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -146,7 +146,7 @@ export default function AboutPage() {
             </p>
           </motion.div>
 
-          
+
         </div>
       </section>
     </main>

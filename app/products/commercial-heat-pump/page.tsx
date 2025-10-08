@@ -6,6 +6,8 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { Gotu, Lato } from "next/font/google";
 
+
+
 const gotu = Gotu({ subsets: ["latin"], weight: "400" });
 // const cormorant = Cormorant_Garamond({ subsets: ["latin"], weight: "400" });
 const lato = Lato({ subsets: ["latin"], weight: "700" });

@@ -11,12 +11,6 @@ import "./globals.css";
 import { GTMTracker } from "@/components/ui/GTMTracker";
 
 
-export const metadata: Metadata = {
-  title: "MifTech Solution",
-  description:
-    "Transforming Energy into Savings with Innovative Heat Pump Technology",
-};
-
 export default function RootLayout({
   children,
 }: {

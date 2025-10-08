@@ -2,6 +2,7 @@ import ClientLogoCloud from '@/components/ui/ClientLogoCloud';
 import Image from 'next/image';
 import Link from 'next/link';
 
+
 const features = [
   "Available in 3.5kW to 90kW models",
   "High COP (up to 4.2) for maximum energy efficiency",
