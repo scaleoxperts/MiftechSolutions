@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { Gotu, Cormorant_Garamond, Lato } from "next/font/google";
 
+
 const gotu = Gotu({ subsets: ["latin"], weight: "400" });
 const cormorant = Cormorant_Garamond({ subsets: ["latin"], weight: "400" });
 const lato = Lato({ subsets: ["latin"], weight: "400" });
@@ -56,7 +57,7 @@ export default function ProductsPage() {
             </h1>
             <p className={`mt-4 text-lg text-gray-700 ${lato.className}`}>
               We don’t just build products; we build{" "}
-              <span className="underline">sustainable energy solutions</span> 
+              <span className="underline">sustainable energy solutions</span>
               that deliver measurable savings and drive growth.
             </p>
           </motion.div>
@@ -84,8 +85,8 @@ export default function ProductsPage() {
                   <p className={`text-gray-700 mb-6 ${lato.className}`}>
                     {product.description}
                   </p>
-                  <Link 
-                    href={product.href} 
+                  <Link
+                    href={product.href}
                     className="inline-block mt-2 px-5 py-2 text-sm font-semibold text-[var(--white)] bg-[#087dc0] rounded-lg shadow hover:bg-opacity-80 transition-all"
                   >
                     Learn More →

@@ -46,18 +46,16 @@ export default function ProductShowcase() {
 
         <div ref={container} className="relative">
           {products.map((product, index) => {
-              const targetScale = 0.85 + (index * 0.05); // final scale per card
-              const range = [
-                (index * 0.5) / products.length,
-                (index * 0.5 + 1) / products.length
-              ];
+            const targetScale = 0.85 + (index * 0.05); // final scale per card
+            const range: [number, number] = [
+              (index * 0.5) / products.length,
+              (index * 0.5 + 1) / products.length
+            ];
 
             return (
               <div className='h-[800px] sticky top-0' key={index}>
-                <ProductCard product={product} index={index} progress={scrollYProgress} range={range} targerScale={ targetScale }
-                
-            
-            />
+                <ProductCard product={product} index={index} progress={scrollYProgress} range={range} targerScale={targetScale}
+                />
               </div>
             )
           })}

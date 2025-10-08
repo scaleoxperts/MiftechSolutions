@@ -4,8 +4,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Gotu, Lato } from "next/font/google";
 
-
-
 // Fonts
 const gotu = Gotu({ subsets: ["latin"], weight: "400" });
 const lato = Lato({ subsets: ["latin"], weight: "700" });
